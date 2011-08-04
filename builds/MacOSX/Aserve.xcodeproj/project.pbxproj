@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C230A29C41403CC4766FAC1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B3B3B15FBF7115E87DC2D7 /* Cocoa.framework */; };
+		432D042C59B9B3CF7CF3D645 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BAE209653E5DC2BCB40338 /* QTKit.framework */; };
+		4BDF613B08DA56EDA63B5740 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6455A06E8C380A8694A6E0 /* OpenGL.framework */; };
+		6857D58C587E6EFC5FF09B3F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F932B705F1B2B0BAAC8D7B /* Carbon.framework */; };
+		77A423FC41C1C04D2D14E421 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9A843A771D89D144E2BEE4 /* CoreMIDI.framework */; };
+		8B36DFCD6568AC934DC6BDEA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3227BFDA9FBE18886750077 /* QuartzCore.framework */; };
+		968A562F78127925F1095095 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25656DA340989CE539B83121 /* WebKit.framework */; };
+		B37447F593A1F41EE0D12717 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B664463A67E8F343E5E32FB7 /* IOKit.framework */; };
+		D20D7AA613EB07C500841D7A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20D7AA513EB07C500841D7A /* AudioToolbox.framework */; };
+		D20D7DC313EB0D0200841D7A /* ApplicationStartup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DAD13EB0D0200841D7A /* ApplicationStartup.cpp */; };
+		D20D7DC413EB0D0200841D7A /* AserveAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */; };
+		D20D7DC513EB0D0200841D7A /* AserveClasses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */; };
+		D20D7DC613EB0D0200841D7A /* AserveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB213EB0D0200841D7A /* AserveComponent.cpp */; };
+		D20D7DC713EB0D0200841D7A /* AserveInterProcessConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */; };
+		D20D7DC813EB0D0200841D7A /* AserveMainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB613EB0D0200841D7A /* AserveMainWindow.cpp */; };
+		D20D7DC913EB0D0200841D7A /* AserveOscillators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */; };
+		D20D7DCA13EB0D0200841D7A /* AserveScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DBA13EB0D0200841D7A /* AserveScope.cpp */; };
+		D20D7DCB13EB0D0200841D7A /* MidiMuncher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DBD13EB0D0200841D7A /* MidiMuncher.cpp */; };
+		D20D7DCC13EB0D0200841D7A /* SampleSelectorWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DBF13EB0D0200841D7A /* SampleSelectorWindow.cpp */; };
+		D20D7DCD13EB0D0200841D7A /* SequencerWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DC113EB0D0200841D7A /* SequencerWindow.cpp */; };
+		D20D7E4E13EB0FE400841D7A /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D20D7E4D13EB0FE400841D7A /* Icon.icns */; };
+		DC86817A5B0FCAFFA743C84D /* DiscRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F8B28472034DD46874A2BB /* DiscRecording.framework */; };
+		DEBC48AD6F9EFBE7CE32238F /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F2B8D48B4FB17E966ABA4 /* QuickTime.framework */; };
+		F2F7E00ADAE9B9676A1DCEEA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BF5542E111FE515231E43B /* CoreAudio.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F6455A06E8C380A8694A6E0 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		25656DA340989CE539B83121 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		55F8B28472034DD46874A2BB /* DiscRecording.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscRecording.framework; path = System/Library/Frameworks/DiscRecording.framework; sourceTree = SDKROOT; };
+		64BF5542E111FE515231E43B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7A4F2B8D48B4FB17E966ABA4 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		9429D0538A91A23AB4943EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		9B9A843A771D89D144E2BEE4 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		B2357151496A683AE4F68A3A /* Aserve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aserve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B3B3B15FBF7115E87DC2D7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B664463A67E8F343E5E32FB7 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		D20D7AA513EB07C500841D7A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		D20D7DAD13EB0D0200841D7A /* ApplicationStartup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ApplicationStartup.cpp; path = ../../Source/ApplicationStartup.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveAudio.cpp; path = ../../Source/AserveAudio.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DAF13EB0D0200841D7A /* AserveAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveAudio.h; path = ../../Source/AserveAudio.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveClasses.cpp; path = ../../Source/AserveClasses.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DB113EB0D0200841D7A /* AserveClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveClasses.h; path = ../../Source/AserveClasses.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB213EB0D0200841D7A /* AserveComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveComponent.cpp; path = ../../Source/AserveComponent.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DB313EB0D0200841D7A /* AserveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveComponent.h; path = ../../Source/AserveComponent.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveInterProcessConnection.cpp; path = ../../Source/AserveInterProcessConnection.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DB513EB0D0200841D7A /* AserveInterProcessConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveInterProcessConnection.h; path = ../../Source/AserveInterProcessConnection.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB613EB0D0200841D7A /* AserveMainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveMainWindow.cpp; path = ../../Source/AserveMainWindow.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DB713EB0D0200841D7A /* AserveMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveMainWindow.h; path = ../../Source/AserveMainWindow.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveOscillators.cpp; path = ../../Source/AserveOscillators.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DB913EB0D0200841D7A /* AserveOscillators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveOscillators.h; path = ../../Source/AserveOscillators.h; sourceTree = SOURCE_ROOT; };
+		D20D7DBA13EB0D0200841D7A /* AserveScope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveScope.cpp; path = ../../Source/AserveScope.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DBB13EB0D0200841D7A /* AserveScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveScope.h; path = ../../Source/AserveScope.h; sourceTree = SOURCE_ROOT; };
+		D20D7DBC13EB0D0200841D7A /* juce_AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_AppConfig.h; path = ../../Source/juce_AppConfig.h; sourceTree = SOURCE_ROOT; };
+		D20D7DBD13EB0D0200841D7A /* MidiMuncher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MidiMuncher.cpp; path = ../../Source/MidiMuncher.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DBE13EB0D0200841D7A /* MidiMuncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidiMuncher.h; path = ../../Source/MidiMuncher.h; sourceTree = SOURCE_ROOT; };
+		D20D7DBF13EB0D0200841D7A /* SampleSelectorWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleSelectorWindow.cpp; path = ../../Source/SampleSelectorWindow.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DC013EB0D0200841D7A /* SampleSelectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleSelectorWindow.h; path = ../../Source/SampleSelectorWindow.h; sourceTree = SOURCE_ROOT; };
+		D20D7DC113EB0D0200841D7A /* SequencerWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequencerWindow.cpp; path = ../../Source/SequencerWindow.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DC213EB0D0200841D7A /* SequencerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequencerWindow.h; path = ../../Source/SequencerWindow.h; sourceTree = SOURCE_ROOT; };
+		D20D7E4D13EB0FE400841D7A /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		D3227BFDA9FBE18886750077 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D7BAE209653E5DC2BCB40338 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		F4F932B705F1B2B0BAAC8D7B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8DB22BDAA39A5DD9458C251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C230A29C41403CC4766FAC1 /* Cocoa.framework in Frameworks */,
+				6857D58C587E6EFC5FF09B3F /* Carbon.framework in Frameworks */,
+				B37447F593A1F41EE0D12717 /* IOKit.framework in Frameworks */,
+				F2F7E00ADAE9B9676A1DCEEA /* CoreAudio.framework in Frameworks */,
+				77A423FC41C1C04D2D14E421 /* CoreMIDI.framework in Frameworks */,
+				968A562F78127925F1095095 /* WebKit.framework in Frameworks */,
+				DC86817A5B0FCAFFA743C84D /* DiscRecording.framework in Frameworks */,
+				4BDF613B08DA56EDA63B5740 /* OpenGL.framework in Frameworks */,
+				8B36DFCD6568AC934DC6BDEA /* QuartzCore.framework in Frameworks */,
+				432D042C59B9B3CF7CF3D645 /* QTKit.framework in Frameworks */,
+				DEBC48AD6F9EFBE7CE32238F /* QuickTime.framework in Frameworks */,
+				D20D7AA613EB07C500841D7A /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89210F11E611BCC7F9AB83F1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D999675BA55B1D08D98AD9F6 /* Source */,
+				9B18CA1495DEDBCCAF74A74A /* Resources */,
+				AEC780E96B477EB51FC152AC /* Frameworks */,
+				B9DC5D65CA87E9EC09C7A6F8 /* Products */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		9B18CA1495DEDBCCAF74A74A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D20D7E4D13EB0FE400841D7A /* Icon.icns */,
+				9429D0538A91A23AB4943EC8 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AEC780E96B477EB51FC152AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D20D7AA513EB07C500841D7A /* AudioToolbox.framework */,
+				F4F932B705F1B2B0BAAC8D7B /* Carbon.framework */,
+				B5B3B3B15FBF7115E87DC2D7 /* Cocoa.framework */,
+				64BF5542E111FE515231E43B /* CoreAudio.framework */,
+				9B9A843A771D89D144E2BEE4 /* CoreMIDI.framework */,
+				55F8B28472034DD46874A2BB /* DiscRecording.framework */,
+				B664463A67E8F343E5E32FB7 /* IOKit.framework */,
+				1F6455A06E8C380A8694A6E0 /* OpenGL.framework */,
+				D7BAE209653E5DC2BCB40338 /* QTKit.framework */,
+				D3227BFDA9FBE18886750077 /* QuartzCore.framework */,
+				7A4F2B8D48B4FB17E966ABA4 /* QuickTime.framework */,
+				25656DA340989CE539B83121 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9DC5D65CA87E9EC09C7A6F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2357151496A683AE4F68A3A /* Aserve.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D999675BA55B1D08D98AD9F6 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D20D7DAD13EB0D0200841D7A /* ApplicationStartup.cpp */,
+				D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */,
+				D20D7DAF13EB0D0200841D7A /* AserveAudio.h */,
+				D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */,
+				D20D7DB113EB0D0200841D7A /* AserveClasses.h */,
+				D20D7DB213EB0D0200841D7A /* AserveComponent.cpp */,
+				D20D7DB313EB0D0200841D7A /* AserveComponent.h */,
+				D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */,
+				D20D7DB513EB0D0200841D7A /* AserveInterProcessConnection.h */,
+				D20D7DB613EB0D0200841D7A /* AserveMainWindow.cpp */,
+				D20D7DB713EB0D0200841D7A /* AserveMainWindow.h */,
+				D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */,
+				D20D7DB913EB0D0200841D7A /* AserveOscillators.h */,
+				D20D7DBA13EB0D0200841D7A /* AserveScope.cpp */,
+				D20D7DBB13EB0D0200841D7A /* AserveScope.h */,
+				D20D7DBC13EB0D0200841D7A /* juce_AppConfig.h */,
+				D20D7DBD13EB0D0200841D7A /* MidiMuncher.cpp */,
+				D20D7DBE13EB0D0200841D7A /* MidiMuncher.h */,
+				D20D7DBF13EB0D0200841D7A /* SampleSelectorWindow.cpp */,
+				D20D7DC013EB0D0200841D7A /* SampleSelectorWindow.h */,
+				D20D7DC113EB0D0200841D7A /* SequencerWindow.cpp */,
+				D20D7DC213EB0D0200841D7A /* SequencerWindow.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CE77BC04FCDC9EAC5D24E2E /* juce_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE0E40C891A3DA633233AFE /* Build configuration list for PBXNativeTarget "juce_app" */;
+			buildPhases = (
+				382FF505F2525058A1649FB3 /* Resources */,
+				04B6F163B25D6AB40B76D360 /* Sources */,
+				B8DB22BDAA39A5DD9458C251 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = juce_app;
+			productInstallPath = "$(HOME)/Applications";
+			productName = sdaProj;
+			productReference = B2357151496A683AE4F68A3A /* Aserve.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77910E1930D3E7EC21D87376 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = B5BED7D1A9B7835E9413150B /* Build configuration list for PBXProject "Aserve" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 89210F11E611BCC7F9AB83F1 /* Source */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CE77BC04FCDC9EAC5D24E2E /* juce_app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		382FF505F2525058A1649FB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D20D7E4E13EB0FE400841D7A /* Icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04B6F163B25D6AB40B76D360 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D20D7DC313EB0D0200841D7A /* ApplicationStartup.cpp in Sources */,
+				D20D7DC413EB0D0200841D7A /* AserveAudio.cpp in Sources */,
+				D20D7DC513EB0D0200841D7A /* AserveClasses.cpp in Sources */,
+				D20D7DC613EB0D0200841D7A /* AserveComponent.cpp in Sources */,
+				D20D7DC713EB0D0200841D7A /* AserveInterProcessConnection.cpp in Sources */,
+				D20D7DC813EB0D0200841D7A /* AserveMainWindow.cpp in Sources */,
+				D20D7DC913EB0D0200841D7A /* AserveOscillators.cpp in Sources */,
+				D20D7DCA13EB0D0200841D7A /* AserveScope.cpp in Sources */,
+				D20D7DCB13EB0D0200841D7A /* MidiMuncher.cpp in Sources */,
+				D20D7DCC13EB0D0200841D7A /* SampleSelectorWindow.cpp in Sources */,
+				D20D7DCD13EB0D0200841D7A /* SequencerWindow.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		09257CAB3DEB5E7322B4382D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(JUCE_SOURCE)";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(JUCE_SOURCE)/bin";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		1883BDE17941EE731925A361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"PROJECT_NAME=\\\"$(PROJECT_NAME)\\\"",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"_NDEBUG=1",
+					"NDEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				OTHER_LDFLAGS = "-ljuce";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+			};
+			name = Release;
+		};
+		8EE7247F5EE9588903C92499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"PROJECT_NAME=\\\"$(PROJECT_NAME)\\\"",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"_DEBUG=1",
+					"DEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				OTHER_LDFLAGS = "-ljucedebug";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+			};
+			name = Debug;
+		};
+		FCBC2E1706A260F847924A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(JUCE_SOURCE)";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(JUCE_SOURCE)/bin";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CE0E40C891A3DA633233AFE /* Build configuration list for PBXNativeTarget "juce_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EE7247F5EE9588903C92499 /* Debug */,
+				1883BDE17941EE731925A361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5BED7D1A9B7835E9413150B /* Build configuration list for PBXProject "Aserve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09257CAB3DEB5E7322B4382D /* Debug */,
+				FCBC2E1706A260F847924A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 77910E1930D3E7EC21D87376 /* Project object */;
+}
