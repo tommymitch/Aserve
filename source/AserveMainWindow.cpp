@@ -63,7 +63,7 @@ public:
     //==============================================================================
     ContentComp (MainDemoWindow* mainWindow_) : mainWindow (mainWindow_), aserve (0)
     {
-		//mainWindow->setUsingNativeTitleBar (! mainWindow->isUsingNativeTitleBar());
+		mainWindow->setUsingNativeTitleBar (true);
 		aserve = new Aserve();
 		addAndMakeVisible (aserve);
     }
