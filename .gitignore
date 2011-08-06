@@ -1,2 +1,4 @@
 /builds/MacOSX/build/ 
 /builds/MacOSX/build/*
+*.mode1v3
+*.pbxuser
