@@ -20,6 +20,9 @@ public:
 	//==============================================================================
 	// called when the close button is pressed or esc is pushed
 	void closeButtonPressed();
+    
+private:
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AserveWindow)
 	
 };
 

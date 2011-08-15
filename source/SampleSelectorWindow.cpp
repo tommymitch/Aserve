@@ -10,7 +10,7 @@
 #include "SampleSelectorWindow.h"
 
 //----
-SampleSelectorComponent::SampleSelectorComponent(AserveAudio& aserveAudioMidi_)
+SampleSelectorComponent::SampleSelectorComponent(OldAserveAudio& aserveAudioMidi_)
 :	aserveAudioMidi(aserveAudioMidi_),
 sampleCount(8)//number of possible samples
 {
@@ -131,7 +131,7 @@ void SampleSelectorComponent::loadFile(int fileNumber, String& path)
 	fileChooser[fileNumber]->setCurrentFile(File(path),true, true);
 }
 
-SampleSelectorWindow::SampleSelectorWindow(AserveAudio& aserveAudioMidi_):
+SampleSelectorWindow::SampleSelectorWindow(OldAserveAudio& aserveAudioMidi_):
 DocumentWindow (T("Sample Selector Window"), Colours::lightgrey,  DocumentWindow::allButtons, true)
 {
 	//setUsingNativeTitleBar(true);	

@@ -15,8 +15,14 @@
 		8B36DFCD6568AC934DC6BDEA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3227BFDA9FBE18886750077 /* QuartzCore.framework */; };
 		968A562F78127925F1095095 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25656DA340989CE539B83121 /* WebKit.framework */; };
 		B37447F593A1F41EE0D12717 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B664463A67E8F343E5E32FB7 /* IOKit.framework */; };
+		D200962013F411D600E3F210 /* AserveNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D200961F13F411D600E3F210 /* AserveNetwork.cpp */; };
+		D200963E13F4152800E3F210 /* AserveController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D200963D13F4152800E3F210 /* AserveController.cpp */; };
+		D200967813F41DC400E3F210 /* AserveAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D200967713F41DC400E3F210 /* AserveAudio.cpp */; };
+		D20098B613F47EF400E3F210 /* Scope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20098B513F47EF400E3F210 /* Scope.cpp */; };
+		D2009AE313F51B6200E3F210 /* AudioFileSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2009AE213F51B6200E3F210 /* AudioFileSelector.cpp */; };
+		D2009AE613F51C0E00E3F210 /* AudioFileSelectorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2009AE513F51C0E00E3F210 /* AudioFileSelectorManager.cpp */; };
 		D20D7AA613EB07C500841D7A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20D7AA513EB07C500841D7A /* AudioToolbox.framework */; };
-		D20D7DC413EB0D0200841D7A /* AserveAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */; };
+		D20D7DC413EB0D0200841D7A /* OldAserveAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DAE13EB0D0200841D7A /* OldAserveAudio.cpp */; };
 		D20D7DC513EB0D0200841D7A /* AserveClasses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */; };
 		D20D7DC613EB0D0200841D7A /* Aserve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB213EB0D0200841D7A /* Aserve.cpp */; };
 		D20D7DC713EB0D0200841D7A /* AserveInterProcessConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */; };
@@ -29,6 +35,12 @@
 		D20D7E8A13EC41FD00841D7A /* AserveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7E8413EC41FD00841D7A /* AserveComponent.cpp */; };
 		D20D7E8B13EC41FD00841D7A /* AserveWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7E8613EC41FD00841D7A /* AserveWindow.cpp */; };
 		D20D7E8C13EC41FD00841D7A /* AserveApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7E8813EC41FD00841D7A /* AserveApp.cpp */; };
+		D20D7F9713ED4BD200841D7A /* AserveGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7F9613ED4BD200841D7A /* AserveGui.cpp */; };
+		D20D7FD513ED4D8E00841D7A /* AserveModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7FD413ED4D8E00841D7A /* AserveModel.cpp */; };
+		D20D7FEA13ED51E100841D7A /* AudioFilePlayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7FE913ED51E100841D7A /* AudioFilePlayerManager.cpp */; };
+		D20D7FF713ED530100841D7A /* AudioFilePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7FF613ED530100841D7A /* AudioFilePlayer.cpp */; };
+		D20D807913ED638900841D7A /* OscillatorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D807813ED638900841D7A /* OscillatorManager.cpp */; };
+		D20D80B613EF000900841D7A /* SingleSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D80B513EF000900841D7A /* SingleSocket.cpp */; };
 		DC86817A5B0FCAFFA743C84D /* DiscRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F8B28472034DD46874A2BB /* DiscRecording.framework */; };
 		DEBC48AD6F9EFBE7CE32238F /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F2B8D48B4FB17E966ABA4 /* QuickTime.framework */; };
 		F2F7E00ADAE9B9676A1DCEEA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BF5542E111FE515231E43B /* CoreAudio.framework */; };
@@ -45,17 +57,29 @@
 		B2357151496A683AE4F68A3A /* Aserve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aserve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B3B3B15FBF7115E87DC2D7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B664463A67E8F343E5E32FB7 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		D200961E13F411D600E3F210 /* AserveNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AserveNetwork.h; sourceTree = "<group>"; };
+		D200961F13F411D600E3F210 /* AserveNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AserveNetwork.cpp; sourceTree = "<group>"; };
+		D200963C13F4152800E3F210 /* AserveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveController.h; path = ../../source/controller/AserveController.h; sourceTree = "<group>"; };
+		D200963D13F4152800E3F210 /* AserveController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveController.cpp; path = ../../source/controller/AserveController.cpp; sourceTree = "<group>"; };
+		D200967613F41DC400E3F210 /* AserveAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AserveAudio.h; sourceTree = "<group>"; };
+		D200967713F41DC400E3F210 /* AserveAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AserveAudio.cpp; sourceTree = "<group>"; };
+		D20098B413F47EF400E3F210 /* Scope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scope.h; path = ../../source/gui/Scope.h; sourceTree = "<group>"; };
+		D20098B513F47EF400E3F210 /* Scope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scope.cpp; path = ../../source/gui/Scope.cpp; sourceTree = "<group>"; };
+		D2009AE113F51B6200E3F210 /* AudioFileSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioFileSelector.h; path = ../../source/gui/AudioFileSelector.h; sourceTree = "<group>"; };
+		D2009AE213F51B6200E3F210 /* AudioFileSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioFileSelector.cpp; path = ../../source/gui/AudioFileSelector.cpp; sourceTree = "<group>"; };
+		D2009AE413F51C0E00E3F210 /* AudioFileSelectorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioFileSelectorManager.h; path = ../../source/gui/AudioFileSelectorManager.h; sourceTree = SOURCE_ROOT; };
+		D2009AE513F51C0E00E3F210 /* AudioFileSelectorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioFileSelectorManager.cpp; path = ../../source/gui/AudioFileSelectorManager.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7AA513EB07C500841D7A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
-		D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveAudio.cpp; path = ../../Source/AserveAudio.cpp; sourceTree = SOURCE_ROOT; };
-		D20D7DAF13EB0D0200841D7A /* AserveAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveAudio.h; path = ../../Source/AserveAudio.h; sourceTree = SOURCE_ROOT; };
+		D20D7DAE13EB0D0200841D7A /* OldAserveAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OldAserveAudio.cpp; path = ../../Source/OldAserveAudio.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7DAF13EB0D0200841D7A /* OldAserveAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OldAserveAudio.h; path = ../../Source/OldAserveAudio.h; sourceTree = SOURCE_ROOT; };
 		D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveClasses.cpp; path = ../../Source/AserveClasses.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7DB113EB0D0200841D7A /* AserveClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveClasses.h; path = ../../Source/AserveClasses.h; sourceTree = SOURCE_ROOT; };
 		D20D7DB213EB0D0200841D7A /* Aserve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Aserve.cpp; path = ../../Source/Aserve.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7DB313EB0D0200841D7A /* Aserve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aserve.h; path = ../../Source/Aserve.h; sourceTree = SOURCE_ROOT; };
 		D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveInterProcessConnection.cpp; path = ../../Source/AserveInterProcessConnection.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7DB513EB0D0200841D7A /* AserveInterProcessConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveInterProcessConnection.h; path = ../../Source/AserveInterProcessConnection.h; sourceTree = SOURCE_ROOT; };
-		D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveOscillators.cpp; path = ../../Source/AserveOscillators.cpp; sourceTree = SOURCE_ROOT; };
-		D20D7DB913EB0D0200841D7A /* AserveOscillators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveOscillators.h; path = ../../Source/AserveOscillators.h; sourceTree = SOURCE_ROOT; };
+		D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AserveOscillators.cpp; sourceTree = "<group>"; };
+		D20D7DB913EB0D0200841D7A /* AserveOscillators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AserveOscillators.h; sourceTree = "<group>"; };
 		D20D7DBA13EB0D0200841D7A /* AserveScope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveScope.cpp; path = ../../Source/AserveScope.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7DBB13EB0D0200841D7A /* AserveScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveScope.h; path = ../../Source/AserveScope.h; sourceTree = SOURCE_ROOT; };
 		D20D7DBC13EB0D0200841D7A /* juce_AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_AppConfig.h; path = ../../Source/juce_AppConfig.h; sourceTree = SOURCE_ROOT; };
@@ -66,12 +90,24 @@
 		D20D7DC113EB0D0200841D7A /* SequencerWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequencerWindow.cpp; path = ../../Source/SequencerWindow.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7DC213EB0D0200841D7A /* SequencerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequencerWindow.h; path = ../../Source/SequencerWindow.h; sourceTree = SOURCE_ROOT; };
 		D20D7E4D13EB0FE400841D7A /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
-		D20D7E8413EC41FD00841D7A /* AserveComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveComponent.cpp; path = ../../source/gui/AserveComponent.cpp; sourceTree = SOURCE_ROOT; };
-		D20D7E8513EC41FD00841D7A /* AserveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveComponent.h; path = ../../source/gui/AserveComponent.h; sourceTree = SOURCE_ROOT; };
+		D20D7E8413EC41FD00841D7A /* AserveComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveComponent.cpp; path = ../../source/AserveComponent.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7E8513EC41FD00841D7A /* AserveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveComponent.h; path = ../../source/AserveComponent.h; sourceTree = SOURCE_ROOT; };
 		D20D7E8613EC41FD00841D7A /* AserveWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveWindow.cpp; path = ../../source/AserveWindow.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7E8713EC41FD00841D7A /* AserveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveWindow.h; path = ../../source/AserveWindow.h; sourceTree = SOURCE_ROOT; };
 		D20D7E8813EC41FD00841D7A /* AserveApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveApp.cpp; path = ../../source/AserveApp.cpp; sourceTree = SOURCE_ROOT; };
 		D20D7E8913EC41FD00841D7A /* AserveApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveApp.h; path = ../../source/AserveApp.h; sourceTree = SOURCE_ROOT; };
+		D20D7F9513ED4BD200841D7A /* AserveGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AserveGui.h; path = ../../source/gui/AserveGui.h; sourceTree = SOURCE_ROOT; };
+		D20D7F9613ED4BD200841D7A /* AserveGui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AserveGui.cpp; path = ../../source/gui/AserveGui.cpp; sourceTree = SOURCE_ROOT; };
+		D20D7FD313ED4D8E00841D7A /* AserveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AserveModel.h; sourceTree = "<group>"; };
+		D20D7FD413ED4D8E00841D7A /* AserveModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AserveModel.cpp; sourceTree = "<group>"; };
+		D20D7FE813ED51E100841D7A /* AudioFilePlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFilePlayerManager.h; sourceTree = "<group>"; };
+		D20D7FE913ED51E100841D7A /* AudioFilePlayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFilePlayerManager.cpp; sourceTree = "<group>"; };
+		D20D7FF513ED530100841D7A /* AudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFilePlayer.h; sourceTree = "<group>"; };
+		D20D7FF613ED530100841D7A /* AudioFilePlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFilePlayer.cpp; sourceTree = "<group>"; };
+		D20D807713ED638900841D7A /* OscillatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscillatorManager.h; sourceTree = "<group>"; };
+		D20D807813ED638900841D7A /* OscillatorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscillatorManager.cpp; sourceTree = "<group>"; };
+		D20D80B413EF000900841D7A /* SingleSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSocket.h; sourceTree = "<group>"; };
+		D20D80B513EF000900841D7A /* SingleSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleSocket.cpp; sourceTree = "<group>"; };
 		D3227BFDA9FBE18886750077 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D7BAE209653E5DC2BCB40338 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		F4F932B705F1B2B0BAAC8D7B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -147,11 +183,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D200963B13F414F100E3F210 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D200963D13F4152800E3F210 /* AserveController.cpp */,
+				D200963C13F4152800E3F210 /* AserveController.h */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		D20D7E7F13EC41CB00841D7A /* gui */ = {
 			isa = PBXGroup;
 			children = (
-				D20D7E8413EC41FD00841D7A /* AserveComponent.cpp */,
-				D20D7E8513EC41FD00841D7A /* AserveComponent.h */,
+				D20D7F9613ED4BD200841D7A /* AserveGui.cpp */,
+				D20D7F9513ED4BD200841D7A /* AserveGui.h */,
+				D20098B513F47EF400E3F210 /* Scope.cpp */,
+				D20098B413F47EF400E3F210 /* Scope.h */,
+				D2009AE513F51C0E00E3F210 /* AudioFileSelectorManager.cpp */,
+				D2009AE413F51C0E00E3F210 /* AudioFileSelectorManager.h */,
+				D2009AE213F51B6200E3F210 /* AudioFileSelector.cpp */,
+				D2009AE113F51B6200E3F210 /* AudioFileSelector.h */,
 			);
 			name = gui;
 			sourceTree = "<group>";
@@ -159,9 +210,41 @@
 		D20D7EFC13ED41BC00841D7A /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				D200967713F41DC400E3F210 /* AserveAudio.cpp */,
+				D200967613F41DC400E3F210 /* AserveAudio.h */,
+				D20D7FE913ED51E100841D7A /* AudioFilePlayerManager.cpp */,
+				D20D7FE813ED51E100841D7A /* AudioFilePlayerManager.h */,
+				D20D7FF613ED530100841D7A /* AudioFilePlayer.cpp */,
+				D20D7FF513ED530100841D7A /* AudioFilePlayer.h */,
+				D20D807813ED638900841D7A /* OscillatorManager.cpp */,
+				D20D807713ED638900841D7A /* OscillatorManager.h */,
+				D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */,
+				D20D7DB913EB0D0200841D7A /* AserveOscillators.h */,
 			);
 			name = audio;
 			path = ../../source/audio;
+			sourceTree = SOURCE_ROOT;
+		};
+		D20D7FD013ED4D6500841D7A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D20D7FD413ED4D8E00841D7A /* AserveModel.cpp */,
+				D20D7FD313ED4D8E00841D7A /* AserveModel.h */,
+			);
+			name = model;
+			path = ../../source/model;
+			sourceTree = SOURCE_ROOT;
+		};
+		D20D80B313EEFFC100841D7A /* network */ = {
+			isa = PBXGroup;
+			children = (
+				D200961F13F411D600E3F210 /* AserveNetwork.cpp */,
+				D200961E13F411D600E3F210 /* AserveNetwork.h */,
+				D20D80B513EF000900841D7A /* SingleSocket.cpp */,
+				D20D80B413EF000900841D7A /* SingleSocket.h */,
+			);
+			name = network;
+			path = ../../source/network;
 			sourceTree = SOURCE_ROOT;
 		};
 		D999675BA55B1D08D98AD9F6 /* Source */ = {
@@ -171,18 +254,21 @@
 				D20D7E8913EC41FD00841D7A /* AserveApp.h */,
 				D20D7E8613EC41FD00841D7A /* AserveWindow.cpp */,
 				D20D7E8713EC41FD00841D7A /* AserveWindow.h */,
+				D20D7E8413EC41FD00841D7A /* AserveComponent.cpp */,
+				D20D7E8513EC41FD00841D7A /* AserveComponent.h */,
+				D200963B13F414F100E3F210 /* controller */,
+				D20D7FD013ED4D6500841D7A /* model */,
 				D20D7E7F13EC41CB00841D7A /* gui */,
 				D20D7EFC13ED41BC00841D7A /* audio */,
-				D20D7DAE13EB0D0200841D7A /* AserveAudio.cpp */,
-				D20D7DAF13EB0D0200841D7A /* AserveAudio.h */,
+				D20D80B313EEFFC100841D7A /* network */,
 				D20D7DB013EB0D0200841D7A /* AserveClasses.cpp */,
 				D20D7DB113EB0D0200841D7A /* AserveClasses.h */,
+				D20D7DAE13EB0D0200841D7A /* OldAserveAudio.cpp */,
+				D20D7DAF13EB0D0200841D7A /* OldAserveAudio.h */,
 				D20D7DB213EB0D0200841D7A /* Aserve.cpp */,
 				D20D7DB313EB0D0200841D7A /* Aserve.h */,
 				D20D7DB413EB0D0200841D7A /* AserveInterProcessConnection.cpp */,
 				D20D7DB513EB0D0200841D7A /* AserveInterProcessConnection.h */,
-				D20D7DB813EB0D0200841D7A /* AserveOscillators.cpp */,
-				D20D7DB913EB0D0200841D7A /* AserveOscillators.h */,
 				D20D7DBA13EB0D0200841D7A /* AserveScope.cpp */,
 				D20D7DBB13EB0D0200841D7A /* AserveScope.h */,
 				D20D7DBC13EB0D0200841D7A /* juce_AppConfig.h */,
@@ -257,7 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D20D7DC413EB0D0200841D7A /* AserveAudio.cpp in Sources */,
+				D20D7DC413EB0D0200841D7A /* OldAserveAudio.cpp in Sources */,
 				D20D7DC513EB0D0200841D7A /* AserveClasses.cpp in Sources */,
 				D20D7DC613EB0D0200841D7A /* Aserve.cpp in Sources */,
 				D20D7DC713EB0D0200841D7A /* AserveInterProcessConnection.cpp in Sources */,
@@ -269,6 +355,18 @@
 				D20D7E8A13EC41FD00841D7A /* AserveComponent.cpp in Sources */,
 				D20D7E8B13EC41FD00841D7A /* AserveWindow.cpp in Sources */,
 				D20D7E8C13EC41FD00841D7A /* AserveApp.cpp in Sources */,
+				D20D7F9713ED4BD200841D7A /* AserveGui.cpp in Sources */,
+				D20D7FD513ED4D8E00841D7A /* AserveModel.cpp in Sources */,
+				D20D7FEA13ED51E100841D7A /* AudioFilePlayerManager.cpp in Sources */,
+				D20D7FF713ED530100841D7A /* AudioFilePlayer.cpp in Sources */,
+				D20D807913ED638900841D7A /* OscillatorManager.cpp in Sources */,
+				D20D80B613EF000900841D7A /* SingleSocket.cpp in Sources */,
+				D200962013F411D600E3F210 /* AserveNetwork.cpp in Sources */,
+				D200963E13F4152800E3F210 /* AserveController.cpp in Sources */,
+				D200967813F41DC400E3F210 /* AserveAudio.cpp in Sources */,
+				D20098B613F47EF400E3F210 /* Scope.cpp in Sources */,
+				D2009AE313F51B6200E3F210 /* AudioFileSelector.cpp in Sources */,
+				D2009AE613F51C0E00E3F210 /* AudioFileSelectorManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -301,8 +400,7 @@
 		1883BDE17941EE731925A361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -326,7 +424,7 @@
 		8EE7247F5EE9588903C92499 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -342,7 +440,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ljucedebug";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -353,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;

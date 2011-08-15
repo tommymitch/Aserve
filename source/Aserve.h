@@ -14,7 +14,7 @@
 #include "AserveClasses.h"
 #include "MidiMuncher.h"
 #include "AserveInterProcessConnection.h"
-#include "AserveAudio.h"
+#include "OldAserveAudio.h"
 #include "AserveScope.h"
 #include "SampleSelectorWindow.h"
 #include "SequencerWindow.h"
@@ -71,14 +71,13 @@ private:
 
 	//==============================================================================
 	// Create the audioMidi object
-	AserveAudio *aserveAudioMidi;
+	OldAserveAudio *aserveAudioMidi;
 	
 	//server stuff
 	TextEditor* messageBox;
 	//to deal with connections to uwe audioserver clients.
 	AserveInterprocessConnectionServer server;
 
-	
 	
 	/////////////////////////////
 	//subwindows	

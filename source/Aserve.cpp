@@ -7,7 +7,7 @@
  *
  */
 
-#include "AserveComponent.h"
+#include "Aserve.h"
 
 Aserve::Aserve()
 {
@@ -32,7 +32,7 @@ Aserve::Aserve()
 	addAndMakeVisible (aserveScope = new AserveScope());
 	//server and GUI Stuff---------------------------------------
 	
-	aserveAudioMidi = new AserveAudio(aserveScope);
+	aserveAudioMidi = new OldAserveAudio(aserveScope);
 	server.addGuiActionListener(this);
 	server.addAudioActionListener(aserveAudioMidi);
 	

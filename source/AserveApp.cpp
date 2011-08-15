@@ -22,7 +22,7 @@ AserveApp::~AserveApp()
 void AserveApp::initialise(const String& commandLine)
 {
 	aserveWindow = new AserveWindow();
-	aserveWindow->centreWithSize(600, 620);   
+	aserveWindow->centreWithSize(450, 520);   
 	aserveWindow->setVisible(true);
 }
 

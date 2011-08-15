@@ -7,9 +7,9 @@
  *
  */
 
-#include "AserveAudio.h"
+#include "OldAserveAudio.h"
 
-AserveAudio::AserveAudio(AserveScope *aserveScopePtr)
+OldAserveAudio::OldAserveAudio(AserveScope *aserveScopePtr)
 {
 	const float defaultVolume = 0.8f;
 
@@ -34,7 +34,7 @@ AserveAudio::AserveAudio(AserveScope *aserveScopePtr)
 	if (error.isNotEmpty())
 	{
 		AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-									 T("Aserver"),
+									 T("Aserve"),
 									 T("Couldn't open an output device!\n\n") + error);
 	}
 	else
@@ -75,7 +75,7 @@ AserveAudio::AserveAudio(AserveScope *aserveScopePtr)
 		audioDeviceManager.setDefaultMidiOutput(s[0]);
 	}
 }
-AserveAudio::~AserveAudio()
+OldAserveAudio::~OldAserveAudio()
 {
 	audioDeviceManager.removeMidiInputCallback (String::empty,&synthSource.midiCollector);
 	audioDeviceManager.removeAudioCallback (this);
@@ -91,7 +91,7 @@ AserveAudio::~AserveAudio()
 	
 }
 
-void AserveAudio::audioDeviceIOCallback (const float** inputChannelData,
+void OldAserveAudio::audioDeviceIOCallback (const float** inputChannelData,
 										 int totalNumInputChannels,
 										 float** outputChannelData,
 										 int totalNumOutputChannels,
@@ -103,19 +103,19 @@ void AserveAudio::audioDeviceIOCallback (const float** inputChannelData,
 	//
 }
 
-void AserveAudio::audioDeviceAboutToStart (AudioIODevice* device)
+void OldAserveAudio::audioDeviceAboutToStart (AudioIODevice* device)
 {
 	audioSourcePlayer.audioDeviceAboutToStart (device);
 	aserveScope->audioDeviceAboutToStart (device);
 }
 
-void AserveAudio::audioDeviceStopped()
+void OldAserveAudio::audioDeviceStopped()
 {
 	audioSourcePlayer.audioDeviceStopped();
 	aserveScope->audioDeviceStopped();
 }
 
-void AserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage &message)
+void OldAserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage &message)
 {
 	
 	unsigned char *rawData;	
@@ -143,7 +143,7 @@ void AserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage
 	
 }
 
-void AserveAudio::changeListenerCallback (ChangeBroadcaster* source)//this should broardcast to the gui object
+void OldAserveAudio::changeListenerCallback (ChangeBroadcaster* source)//this should broardcast to the gui object
 {												
 	// callback from the transport source to tell us that play has
 	// started or stopped, so update our buttons..
@@ -151,18 +151,18 @@ void AserveAudio::changeListenerCallback (ChangeBroadcaster* source)//this shoul
 	sendActionMessage(T("sub:updatebuttons"));//updateButtons();  //need to post this to gui!
 }
 
-void AserveAudio::addMidiActionListener(ActionListener* const listener)
+void OldAserveAudio::addMidiActionListener(ActionListener* const listener)
 {
 	addActionListener(listener);
 }
 
-void AserveAudio::actionListenerCallback(const String& message)
+void OldAserveAudio::actionListenerCallback(const String& message)
 {
 	//printf("AserveAudio Recieved ActionMessage::%s\n", (const char *)message);
 	parseMessage(message);
 }
 
-void AserveAudio::parseMessage(const String& message)
+void OldAserveAudio::parseMessage(const String& message)
 {
 	String string = message;
 	
@@ -283,7 +283,7 @@ void AserveAudio::parseMessage(const String& message)
 			
 }
 
-bool AserveAudio::inRange(const char *parameter, double value, double min, double max)
+bool OldAserveAudio::inRange(const char *parameter, double value, double min, double max)
 {
 	//IMPORTANT - NEED TO FIND A CROSS PLATFORM METHOD FOR CHECKING FOR INF and NaN! as 
 	//these may get through this check.
@@ -297,7 +297,7 @@ bool AserveAudio::inRange(const char *parameter, double value, double min, doubl
 	return inrange;
 }
 
-void AserveAudio::stopAll()
+void OldAserveAudio::stopAll()
 {
 	synthSource.allNotesOff();
 	//owner.toneSource.setAmplitude(0);
@@ -307,7 +307,7 @@ void AserveAudio::stopAll()
 		transportSource[i].stop();
 }
 
-void AserveAudio::loadSample (int fileIndex, String& filePath)
+void OldAserveAudio::loadSample (int fileIndex, String& filePath)
 {
 	// this is called when the user changes the filename in the file chooser box
 	File audioFile (filePath);
@@ -350,17 +350,17 @@ void AserveAudio::loadSample (int fileIndex, String& filePath)
 	}
 }
 
-bool AserveAudio::fileLoaded(int sampleNumber)
+bool OldAserveAudio::fileLoaded(int sampleNumber)
 {
 	return 	currentAudioFileSource[sampleNumber] != 0;
 }
 
-bool AserveAudio::filePlaying(int sampleNumber)
+bool OldAserveAudio::filePlaying(int sampleNumber)
 {
 	return transportSource[sampleNumber].isPlaying();
 }
 
-void AserveAudio::showAudioSettings(Component *centerComp)
+void OldAserveAudio::showAudioSettings(Component *centerComp)
 {
 	AudioDeviceSelectorComponent audioSettingsComp (audioDeviceManager,
 													0, 0,

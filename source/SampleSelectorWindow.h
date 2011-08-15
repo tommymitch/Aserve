@@ -11,14 +11,14 @@
 #define __SAMPLESELECTORWINDOW__
 
 #include <juce.h>
-#include "AserveAudio.h"
+#include "OldAserveAudio.h"
 
 class SampleSelectorComponent : public Component,
 								public FilenameComponentListener,
 								public ButtonListener
 {
 private:
-	AserveAudio& aserveAudioMidi;// this is needed 
+	OldAserveAudio& aserveAudioMidi;// this is needed 
 	int sampleCount;
 	
 	Array <Label*> labels;
@@ -27,7 +27,7 @@ private:
 	ActionBroadcaster audioBroadcaster;
 
 public:
-	SampleSelectorComponent(AserveAudio& aserveAudioMidi_);
+	SampleSelectorComponent(OldAserveAudio& aserveAudioMidi_);
 	~SampleSelectorComponent();
 	void updateButtons(void);
 	void buttonClicked(Button* button);
@@ -44,7 +44,7 @@ private:
 	SampleSelectorComponent *sampleSelectorComponent;
 	
 public:
-	SampleSelectorWindow(AserveAudio& aserveAudioMidi_);
+	SampleSelectorWindow(OldAserveAudio& aserveAudioMidi_);
 	~SampleSelectorWindow();
 	void updateButtons(void);
 	void loadFile(int fileNumber, String& path);

@@ -17,7 +17,7 @@
 Oscillator::Oscillator() 
 :		frequency (1000.0),
 		sampleRate (44100.0),
-		amplitude (0.5f),
+		amplitude (0.0f),
 		tailOff(0.0)
 {
 	

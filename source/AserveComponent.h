@@ -10,10 +10,16 @@
 #define H_ASERVECOMPONENT
 
 #include <juce.h>
-#include "Aserve.h"
+#include "AserveModel.h"
+#include "AserveController.h"
+#include "AserveGui.h"
+#include "AserveNetwork.h"
+#include "AserveAudio.h"
 
-class AserveComponent  : public Component,
-                         public MenuBarModel
+//#include "Aserve.h"
+
+class AserveComponent  :    public Component,
+                            public MenuBarModel
 {	
 public:
     enum Menus
@@ -26,6 +32,8 @@ public:
     enum FileMenuItems 
 	{
         AUDIOPREFS = 1,
+        AUDIOFILES,
+        BITREPRESENTATION,
 		
 		NUMFILEMENUITEMS
 	};
@@ -43,8 +51,13 @@ public:
 private:
 	//==============================================================================
 	//Add data members here
-    ScopedPointer<Aserve> aserve;
+    ScopedPointer<AserveModel> model;             //where all data is stored
+    ScopedPointer<AserveGui> gui;                 //all gui objects
+    ScopedPointer<AserveNetwork> network;         //where all network activity is managed
+    ScopedPointer<AserveAudio> audio;             //where all midi and audio is done
+    
     TooltipWindow tooltipWindow;
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AserveComponent)
 };
 
 

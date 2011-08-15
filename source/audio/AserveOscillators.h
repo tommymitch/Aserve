@@ -4,8 +4,8 @@
  *  Created by Thomas Mitchell on 25/09/2008.
  *
  */
-#ifndef __ASERVE_OSCILLATORS__
-#define __ASERVE_OSCILLATORS__
+#ifndef H_ASERVEOSCILLATORS
+#define H_ASERVEOSCILLATORS
 
 class Oscillator
 {
@@ -95,4 +95,4 @@ class WaveOscillator
 		double nextSample(void);
 };
 
-#endif   // __ASERVE_CLASSES__
+#endif   // H_ASERVEOSCILLATORS

@@ -12,7 +12,7 @@
 
 #include <juce.h>
 #include "AserveClasses.h"
-#include "MidiMuncher.h"
+#include "MidiMuncher.h" 
 #include "AserveScope.h"
 
 //samp commands
@@ -25,7 +25,7 @@ enum
 };
 
 
-class AserveAudio : public Component,
+class OldAserveAudio : public Component,
 					public AudioIODeviceCallback,
 					public MidiInputCallback,
 					public ChangeListener,
@@ -33,8 +33,8 @@ class AserveAudio : public Component,
 					public ActionListener		//to recieve messages from the interprocessconnection and from the gui
 {
 public:
-	AserveAudio(AserveScope *aserveScopePtr);
-	~AserveAudio();
+	OldAserveAudio(AserveScope *aserveScopePtr);
+	~OldAserveAudio();
 	void audioDeviceIOCallback (const float** inputChannelData,
                                 int totalNumInputChannels,
                                 float** outputChannelData,
@@ -91,6 +91,7 @@ private:
 	
 	//pointer to the scope in the AserveComponent object
 	AserveScope *aserveScope; 
+    
 };
 
 
