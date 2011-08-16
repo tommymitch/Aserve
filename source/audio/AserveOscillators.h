@@ -85,6 +85,14 @@ class WaveOscillator
 		SquareOscillator squareOscillator;
 		SawOscillator sawOscillator;
 	public:
+    enum Constants 
+    {
+        Sinusoid = 0,
+        Square,
+        Sawtooth,
+        
+        NumWaveforms
+    };
 		WaveOscillator();
 		~WaveOscillator();
 		void setWave(int val);

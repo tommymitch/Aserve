@@ -45,12 +45,13 @@ void AudioFilePlayer::loadAudioFile (const String& path)
 	bool error = false;
     File audioFile (path);
     
+    // unload the previous file source and delete it..
+    transportSource.stop ();
+    transportSource.setSource (0);
+    currentAudioFileSource = NULL;
+    
 	if(audioFile.existsAsFile())
 	{
-		// unload the previous file source and delete it..
-		transportSource.stop ();
-		transportSource.setSource (0);
-        currentAudioFileSource = NULL;
 		// create a new file source from the file..
 		// get a format manager and set it up with the basic types (wav and aiff).
 		AudioFormatManager formatManager;
@@ -82,11 +83,13 @@ void AudioFilePlayer::loadAudioFile (const String& path)
     
 	if (error) 
 	{
-		AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-									 "Aserve: File Error",
-									 "It was not possible to load the file: \n" + audioFile.getFileName() + "\n Check the file path/format for problems.",
-									 "ok");
-        
+        if (path != String::empty) 
+        {
+            AlertWindow::showMessageBox (AlertWindow::WarningIcon,
+                                         "Aserve: File Error",
+                                         "It was not possible to load the file: \n" + audioFile.getFileName() + "\n Check the file path/format for problems.",
+                                         "ok");
+        }
 		listeners.call(&Listener::audioFileNameChanged, this, String::empty);
         listeners.call(&Listener::audioFilePlayStateChanged, this, Disable);
 	}
@@ -143,4 +146,6 @@ void AudioFilePlayer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToF
 void AudioFilePlayer::changeListenerCallback (ChangeBroadcaster* source)
 {
     listeners.call(&Listener::audioFilePlayStateChanged, this, static_cast<PlayState> (transportSource.isPlaying()));
+    if(currentAudioFileSource == 0)
+        listeners.call(&Listener::audioFilePlayStateChanged, this, Disable);
 }

@@ -57,6 +57,19 @@ namespace AudioFileSelectorManagerSettings
             }
         }
 	}
+    
+    static void initAudioFileSelectorManagerSettings(ValueTree* treeToFill)
+    {
+        ValueTree audioFileSelectorManagerSettingsTree = treeToFill->getChildWithName(AudioFileSelectorManagerSettings::SectionName);
+        
+        for (int i = 0; i < AudioFilePlayerManager::NumPlayers; ++i)
+        {
+            for (int p = 0; p < numSettings; p++)
+            {
+                audioFileSelectorManagerSettingsTree.setProperty(Names[p].toString()+String(i), Values[p], 0);
+            }
+        }
+    }
 }
 
 
@@ -78,6 +91,7 @@ public:
      */
     ~AudioFileSelectorManager();
     
+    //Listener
     class Listener
     {
     public:
@@ -120,6 +134,7 @@ public:
     
 private:
     OwnedArray <AudioFileSelector> selectors;
+    
     //Listener
     ListenerList<Listener> listeners;
     

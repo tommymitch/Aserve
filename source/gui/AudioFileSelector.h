@@ -26,7 +26,8 @@ private:
  */
 class AudioFileSelector  :  public Component,
                             public FilenameComponentListener,
-                            public Button::Listener
+                            public Button::Listener,
+                            public MessageListener
 {
 public:
     /**
@@ -38,6 +39,17 @@ public:
      */
     ~AudioFileSelector();
     
+    /**
+     Sets playstate -1 = disable 0 = stop 1 = play
+     */
+    void setPlayState(const int playState);
+    
+    /**
+     Sets fileName in the box
+     */
+    void setFileName(const String& fileName);
+    
+    //Listener=====================================================================
     class Listener
     {
     public:
@@ -49,19 +61,9 @@ public:
         /**
          one of the buttons is pressed or a file is loaded
          */
-        virtual void audioFileNameChanged(const AudioFileSelector *selector, const String &fileName)=0;
-        virtual void audioFilePlayButtonClicked(const AudioFileSelector *selector)=0;
+        virtual void audioFileNameChanged(const AudioFileSelector* selector, const String &fileName)=0;
+        virtual void audioFilePlayButtonClicked(const AudioFileSelector* selector)=0;
     };
-    
-    /**
-     Sets playstate -1 = disable 0 = stop 1 = play
-     */
-    void setPlayState(const int playState);
-    
-    /**
-     Sets fileName in the box
-     */
-    void setFileName(const String& fileName);
     
     /**
 	 Adds a listener to recieve glove data
@@ -77,6 +79,15 @@ public:
     virtual void resized();
     virtual void buttonClicked (Button* button);
     virtual void filenameComponentChanged (FilenameComponent*);
+    //first int of the message type signals the message
+    enum MessageTypes 
+    {
+        PlayMessage,
+        FileMessage,
+        
+        NumTypes
+    };
+    virtual void handleMessage (const Message& message);
     //==========================================================================
 private:
 	ScopedPointer <FilenameComponent> fileChooser;

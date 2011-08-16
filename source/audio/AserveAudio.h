@@ -69,17 +69,22 @@ public:
     /**
      plays or stops the specified audio file player - if it's playing it stops - if it's stopped it plays.
      */
-    void audioFile(const int audioFileIndex);
+    void playFile(const int audioFileIndex);
     
     /**
      plays or stops the specified audio file player
      */
-    void audioFile(const int audioFileIndex, bool shouldPlay);
+    void playFile(const int audioFileIndex, float gain);
     
     /**
      instructs the specified audio file player to load the file at the given path
      */
-    void audioFile(const int audioFileIndex, const String &newFilePath);
+    void loadFile(const int audioFileIndex, const String &newFilePath);
+    
+    /**
+     sets the oscillator parameters
+     */
+    void setOscillator(const int index, const float frequency, const float amplitude, const int waveform);
     
     /**
      Commands parser for all audio commands

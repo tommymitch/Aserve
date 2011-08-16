@@ -41,6 +41,8 @@
 		D20D7FF713ED530100841D7A /* AudioFilePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D7FF613ED530100841D7A /* AudioFilePlayer.cpp */; };
 		D20D807913ED638900841D7A /* OscillatorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D807813ED638900841D7A /* OscillatorManager.cpp */; };
 		D20D80B613EF000900841D7A /* SingleSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20D80B513EF000900841D7A /* SingleSocket.cpp */; };
+		D228768413F966D60023BF80 /* BitwiseSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D228768313F966D60023BF80 /* BitwiseSelector.cpp */; };
+		D228769C13F96B890023BF80 /* BitwiseSelectorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D228769B13F96B890023BF80 /* BitwiseSelectorManager.cpp */; };
 		DC86817A5B0FCAFFA743C84D /* DiscRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F8B28472034DD46874A2BB /* DiscRecording.framework */; };
 		DEBC48AD6F9EFBE7CE32238F /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F2B8D48B4FB17E966ABA4 /* QuickTime.framework */; };
 		F2F7E00ADAE9B9676A1DCEEA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BF5542E111FE515231E43B /* CoreAudio.framework */; };
@@ -108,6 +110,10 @@
 		D20D807813ED638900841D7A /* OscillatorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscillatorManager.cpp; sourceTree = "<group>"; };
 		D20D80B413EF000900841D7A /* SingleSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSocket.h; sourceTree = "<group>"; };
 		D20D80B513EF000900841D7A /* SingleSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleSocket.cpp; sourceTree = "<group>"; };
+		D228768213F966D50023BF80 /* BitwiseSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitwiseSelector.h; path = ../../source/gui/BitwiseSelector.h; sourceTree = SOURCE_ROOT; };
+		D228768313F966D60023BF80 /* BitwiseSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BitwiseSelector.cpp; path = ../../source/gui/BitwiseSelector.cpp; sourceTree = SOURCE_ROOT; };
+		D228769A13F96B890023BF80 /* BitwiseSelectorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitwiseSelectorManager.h; path = ../../source/gui/BitwiseSelectorManager.h; sourceTree = SOURCE_ROOT; };
+		D228769B13F96B890023BF80 /* BitwiseSelectorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BitwiseSelectorManager.cpp; path = ../../source/gui/BitwiseSelectorManager.cpp; sourceTree = SOURCE_ROOT; };
 		D3227BFDA9FBE18886750077 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D7BAE209653E5DC2BCB40338 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		F4F932B705F1B2B0BAAC8D7B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -203,6 +209,10 @@
 				D2009AE413F51C0E00E3F210 /* AudioFileSelectorManager.h */,
 				D2009AE213F51B6200E3F210 /* AudioFileSelector.cpp */,
 				D2009AE113F51B6200E3F210 /* AudioFileSelector.h */,
+				D228769B13F96B890023BF80 /* BitwiseSelectorManager.cpp */,
+				D228769A13F96B890023BF80 /* BitwiseSelectorManager.h */,
+				D228768313F966D60023BF80 /* BitwiseSelector.cpp */,
+				D228768213F966D50023BF80 /* BitwiseSelector.h */,
 			);
 			name = gui;
 			sourceTree = "<group>";
@@ -367,6 +377,8 @@
 				D20098B613F47EF400E3F210 /* Scope.cpp in Sources */,
 				D2009AE313F51B6200E3F210 /* AudioFileSelector.cpp in Sources */,
 				D2009AE613F51C0E00E3F210 /* AudioFileSelectorManager.cpp in Sources */,
+				D228768413F966D60023BF80 /* BitwiseSelector.cpp in Sources */,
+				D228769C13F96B890023BF80 /* BitwiseSelectorManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

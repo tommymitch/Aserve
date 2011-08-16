@@ -25,14 +25,12 @@ OscillatorManager::~OscillatorManager()
 //==============================================================================
 void OscillatorManager::setAmplitude (const int oscillatorIndex, const float newAmplitude)
 {
-    if (isPositiveAndBelow(oscillatorIndex, static_cast<int>(NumOscillators))) 
-        oscillators[oscillatorIndex]->setAmplitude(newAmplitude);
+    oscillators[oscillatorIndex]->setAmplitude(newAmplitude);
 }
 
 void OscillatorManager::stop (const int oscillatorIndex)
 {
-    if (isPositiveAndBelow(oscillatorIndex, static_cast<int>(NumOscillators)))
-        oscillators[oscillatorIndex]->stop();  
+    oscillators[oscillatorIndex]->stop();  
 }
 
 void OscillatorManager::stopAll (void)
@@ -43,14 +41,12 @@ void OscillatorManager::stopAll (void)
 
 void OscillatorManager::setFrequency (const int oscillatorIndex, const double newFrequencyHz)
 {
-    if (isPositiveAndBelow(oscillatorIndex, static_cast<int>(NumOscillators))) 
-        oscillators[oscillatorIndex]->setFrequency(newFrequencyHz);
+    oscillators[oscillatorIndex]->setFrequency(newFrequencyHz);
 }
 
 void OscillatorManager::setWave (const int oscillatorIndex, const int wave)
 {
-    if (isPositiveAndBelow(oscillatorIndex, static_cast<int>(NumOscillators))) 
-        oscillators[oscillatorIndex]->setWave(wave);
+    oscillators[oscillatorIndex]->setWave(wave);
 }
 
 //==============================================================================

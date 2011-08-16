@@ -49,33 +49,32 @@ void AudioFilePlayerManager::removeListener(Listener *listenerToRemove)
 
 
 void AudioFilePlayerManager::loadAudioFile (const int playerIndex, const String& path)
-{
-    if (isPositiveAndBelow(playerIndex, static_cast<int>(NumPlayers))) 
-        players[playerIndex]->loadAudioFile(path);
+{ 
+    players[playerIndex]->loadAudioFile(path);
 }
 
 void AudioFilePlayerManager::play(const int playerIndex, const float gain)
 {
-    if (isPositiveAndBelow(playerIndex, static_cast<int>(NumPlayers)) && isPositiveAndNotGreaterThan(gain, 1.f))
-        players[playerIndex]->play(gain);
+    players[playerIndex]->play(gain);
 }
 
 void AudioFilePlayerManager::stop(const int playerIndex)
 {
-    if (isPositiveAndBelow(playerIndex, static_cast<int>(NumPlayers)))
-        players[playerIndex]->stop();
+    players[playerIndex]->stop();
 }
 
 void AudioFilePlayerManager::togglePlayState(const int playerIndex)
 {
-    if (isPositiveAndBelow(playerIndex, static_cast<int>(NumPlayers)))
-        players[playerIndex]->togglePlayState();
+    players[playerIndex]->togglePlayState();
 }
 
 void AudioFilePlayerManager::stopAll()
 {
    for (int i = 0; i < NumPlayers; ++i) 
-       players[i]->stop();
+   {
+       stop(i);
+       loadAudioFile (i, String::empty);
+   }
 }
 
 

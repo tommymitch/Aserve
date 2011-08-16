@@ -83,9 +83,9 @@ void AserveAudio::parseMessage(const String& message)
         {
             if(amp > 0.f)
             {
-                oscillators->setAmplitude(oscillatorNumber,amp);
                 oscillators->setFrequency(oscillatorNumber,freq);
                 oscillators->setWave(oscillatorNumber,wave);
+                oscillators->setAmplitude(oscillatorNumber,amp);
             }
             else
             {
@@ -187,23 +187,36 @@ void AserveAudio::stopAll(void)
     audioFiles->stopAll();
 }
 
-void AserveAudio::audioFile(const int audioFileIndex)
+void AserveAudio::playFile(const int audioFileIndex)
 {
     audioFiles->togglePlayState(audioFileIndex);
 }
 
-void AserveAudio::audioFile(const int audioFileIndex, bool shouldPlay)
+void AserveAudio::playFile(const int audioFileIndex, float gain)
 {
-    if (shouldPlay) 
-        audioFiles->play(audioFileIndex, 1.f);
+    if (gain > 0.f) 
+        audioFiles->play(audioFileIndex, gain);
     else 
         audioFiles->stop(audioFileIndex);
-
 }
 
-void AserveAudio::audioFile(const int audioFileIndex, const String &newFilePath)
+void AserveAudio::loadFile(const int audioFileIndex, const String &newFilePath)
 {
     audioFiles->loadAudioFile(audioFileIndex, newFilePath);
+}
+
+void AserveAudio::setOscillator(const int index, const float frequency, const float amplitude, const int waveform)
+{
+    if(amplitude > 0.f)
+    {
+        oscillators->setFrequency(index,frequency);
+        oscillators->setWave(index,waveform);
+        oscillators->setAmplitude(index,amplitude);
+    }
+    else
+    {
+        oscillators->stop(index);
+    }
 }
 
 
@@ -213,7 +226,6 @@ void AserveAudio::audioDeviceAboutToStart (AudioIODevice* device)
     if (scopeObject) 
         scopeObject->audioDeviceAboutToStart (device);
     audioSourcePlayer.audioDeviceAboutToStart (device);
-    std::cout << "Audio Start\n";
 }
 
 void AserveAudio::audioDeviceStopped()
@@ -221,7 +233,6 @@ void AserveAudio::audioDeviceStopped()
     if (scopeObject) 
         scopeObject->audioDeviceStopped ();
     audioSourcePlayer.audioDeviceStopped ();
-    std::cout << "Audio Stop\n";
 }
 
 void AserveAudio::audioDeviceIOCallback (const float** inAudio,int numInChannels,float** outAudio,int numOutAudio,int numSamples)

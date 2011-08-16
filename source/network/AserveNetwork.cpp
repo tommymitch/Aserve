@@ -34,12 +34,11 @@ void AserveNetwork::disconnected()
     std::cout << "disconnected\n";
     AserveController* ac = AserveController::getInstance();
     if (ac) 
-        ac->stopAllAudio();
+        ac->reset();
 }
 
 void AserveNetwork::messageReceived (const String& message)
 {
-    std::cout << "Message:" << message << "\n";
     AserveController* ac = AserveController::getInstance();
     if(ac)
         ac->parseNetworkMessage(message);

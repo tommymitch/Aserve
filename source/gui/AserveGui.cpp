@@ -18,6 +18,11 @@ AserveGui::AserveGui() :  samplesVisible(false), bitwiseVisible(false)
     audioFileSelectors = new AudioFileSelectorManager();
     audioFileSelectors->addListener(this);
     addAndMakeVisible(audioFileSelectors);
+    
+    bitwiseSelectors = new BitwiseSelectorManager();
+    bitwiseSelectors->addListener(this);
+    addAndMakeVisible(bitwiseSelectors);
+    
 }
 
 AserveGui::~AserveGui()
@@ -29,6 +34,7 @@ void AserveGui::addValueTreeListeners(ValueTree* valueTree)
 {
     valueTree->addListener(this);
     valueTree->addListener(audioFileSelectors);
+    valueTree->addListener(bitwiseSelectors);
 }
 
 void AserveGui::showAudioSettings(Component *centerComp, AudioDeviceManager* deviceManager)
@@ -53,22 +59,22 @@ void AserveGui::resized()
         int x = getWidth();
         int y = getHeight()/3;
         scope->setBounds(0,0,x,y);
-        audioFileSelectors->setBounds(0,y,x,y);
-       // bitwise->setBounds(0,2*y,x,y);
+        audioFileSelectors->setBounds(2,y+2,x-4,y-4);
+        bitwiseSelectors->setBounds(2,2*y+2,x-4,y-4);
     }
     else if(samplesVisible)
     {
         int x = getWidth();
         int y = getHeight()/2;
         scope->setBounds(0,0,x,y);
-        audioFileSelectors->setBounds(0,y,x,y);
+        audioFileSelectors->setBounds(2,y+2,x-4,y-4);
     }
     else if(bitwiseVisible)
     {
         int x = getWidth();
         int y = getHeight()/2;
         scope->setBounds(0,0,x,y);
-       // bitwise->setBounds(0,y,x,y);
+        bitwiseSelectors->setBounds(2,y+2,x-4,y-4);
     }
     else 
     {
@@ -88,7 +94,7 @@ void AserveGui::valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged
         else if (property == GuiSettings::Names[GuiSettings::BitRepresentationVisible]) 
         {
             bitwiseVisible = treeWhosePropertyHasChanged.getProperty(GuiSettings::Names[GuiSettings::BitRepresentationVisible]);
-            //bitwise->setVisible(bitwiseVisible);
+            bitwiseSelectors->setVisible(bitwiseVisible);
         }
         resized();
     }    
@@ -98,12 +104,19 @@ void AserveGui::audioFileNameChanged(const int audioFileIndex, const String &pat
 {
     AserveController* ac = AserveController::getInstance();
     if (ac) 
-        ac->audioFile(AserveController::Gui, audioFileIndex, path);
+        ac->loadFile(AserveController::Gui, audioFileIndex, path);
 }
 
 void AserveGui::audioFilePlayButtonClicked(const int audioFileIndex)
 {
     AserveController* ac = AserveController::getInstance();
     if (ac) 
-        ac->audioFile(AserveController::Gui, audioFileIndex);
+        ac->playFile(AserveController::Gui, audioFileIndex);
+}
+
+void AserveGui::bitwiseSelectorClicked(const int x, const int y)
+{
+    AserveController* ac = AserveController::getInstance();
+    if (ac) 
+        ac->bitwise(AserveController::Gui, x, y);
 }

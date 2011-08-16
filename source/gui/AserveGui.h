@@ -13,6 +13,7 @@
 #include <juce.h>
 #include "Scope.h"
 #include "AudioFileSelectorManager.h"
+#include "BitwiseSelectorManager.h"
 
 namespace GuiSettings
 {
@@ -38,10 +39,9 @@ namespace GuiSettings
         false		//BitRepresentationVisible
     };
     
-    static void buildDefaultGuiSettings(ValueTree* treeToFill)
+    static void buildGuiSettings(ValueTree* treeToFill)
 	{
 		ValueTree guiSettingsTree(GuiSettings::SectionName);
-        
         treeToFill->addChild(guiSettingsTree, -1, 0);
         
 		for (int p = 0; p < GuiSettings::numSettings; p++)
@@ -50,7 +50,15 @@ namespace GuiSettings
 		}
         
         AudioFileSelectorManagerSettings::buildDefaultAudioFileSelectorManagerSettings(treeToFill);
+        BitwiseSelectorManagerSettings::buildDefaultBitwiseSelectorManagerSettings(treeToFill);
 	}
+    
+    static void initGuiSettings(ValueTree* treeToFill)
+    {
+        ValueTree guiSettingsTree = treeToFill->getChildWithName(GuiSettings::SectionName);
+        AudioFileSelectorManagerSettings::initAudioFileSelectorManagerSettings(treeToFill);
+        BitwiseSelectorManagerSettings::initBitwiseSelectorManagerSettings(treeToFill);
+    }
 }
 
 
@@ -59,7 +67,8 @@ namespace GuiSettings
  */
 class AserveGui  :  public Component,
                     public ValueTree::Listener,
-                    public AudioFileSelectorManager::Listener
+                    public AudioFileSelectorManager::Listener,
+                    public BitwiseSelectorManager::Listener
 {
 public:
     /**
@@ -97,7 +106,8 @@ public:
     //AudioFileSelectorCallbacks=========================================================
     virtual void audioFileNameChanged(const int audioFileIndex, const String &fileName);
     virtual void audioFilePlayButtonClicked(const int audioFileIndex);
-    //
+    //BitwiseSelector callbacks
+    virtual void bitwiseSelectorClicked(const int x, const int y);
     
 private:
     bool samplesVisible;
@@ -105,6 +115,7 @@ private:
 
     ScopedPointer<Scope> scope;
     ScopedPointer<AudioFileSelectorManager> audioFileSelectors;
+    ScopedPointer<BitwiseSelectorManager> bitwiseSelectors;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AserveGui)
 };
 

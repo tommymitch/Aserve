@@ -110,5 +110,4 @@ void SocketConnection::connectionLost()
 void SocketConnection::messageReceived (const MemoryBlock& message)
 {
     owner->messageReceived(message.toString());
-    std::cout << Thread::getCurrentThreadId() << "\n";
 }

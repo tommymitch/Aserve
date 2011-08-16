@@ -11,7 +11,7 @@
 
 juce_ImplementSingleton (AserveController)
 
-AserveController::AserveController() : model(NULL), audio(NULL), network(NULL)
+AserveController::AserveController() : model(NULL), audio(NULL), network(NULL), gui(NULL)
 {
     
 }
@@ -31,20 +31,65 @@ const var& AserveController::getModelParameter(const Identifier& group, const Id
 
 void AserveController::setModelParameter(const Identifier& group, const Identifier& parameter, const var& newValue)
 {
-    ValueTree vt = model->getValueTree()->getChildWithName(group);
-    vt.setProperty (parameter, newValue,0);
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(group);
+        vt.setProperty (parameter, newValue,0);
+    }
+    
 }
 
 void AserveController::setAudioFileParameter(const int fileIndex, const String& path)
 {
-    ValueTree vt = model->getValueTree()->getChildWithName(AudioFileSelectorManagerSettings::SectionName);
-    vt.setProperty (AudioFileSelectorManagerSettings::Names[AudioFileSelectorManagerSettings::FileName].toString()+String(fileIndex), path,0);
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(AudioFileSelectorManagerSettings::SectionName);
+        vt.setProperty (AudioFileSelectorManagerSettings::Names[AudioFileSelectorManagerSettings::FileName].toString()+String(fileIndex), path,0);
+    }
 }
 
 void AserveController::setAudioFileParameter(const int fileIndex, const int playState)
 {
-    ValueTree vt = model->getValueTree()->getChildWithName(AudioFileSelectorManagerSettings::SectionName);
-    vt.setProperty (AudioFileSelectorManagerSettings::Names[AudioFileSelectorManagerSettings::PlayState].toString()+String(fileIndex), playState,0);
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(AudioFileSelectorManagerSettings::SectionName);
+        vt.setProperty (AudioFileSelectorManagerSettings::Names[AudioFileSelectorManagerSettings::PlayState].toString()+String(fileIndex), playState,0);
+    }
+}
+
+void AserveController::toggleBitwiseParameter(const int x, const int y)
+{
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(BitwiseSelectorManagerSettings::SectionName);
+        String propertyname(BitwiseSelectorManagerSettings::Names[0].toString()+String(y));
+        BigInteger modelValue((int32)vt.getProperty (propertyname));
+        modelValue.setBit(x,!modelValue[x]);//toggle
+        vt.setProperty (propertyname, modelValue.toInteger(), 0);
+        String message(String("sequence") + ":" + String(y) + ":" + String((int32)vt.getProperty (propertyname)));
+        sendNetworkMessage(message);
+    }
+   
+    
+}
+
+void AserveController::setBitwiseParameter(const int bitwiseSelector, const int newValue)
+{
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(BitwiseSelectorManagerSettings::SectionName);
+        String propertyname(BitwiseSelectorManagerSettings::Names[0].toString()+String(bitwiseSelector));
+        vt.setProperty (propertyname, newValue, 0);
+        String message(String("sequence") + ":" + String(bitwiseSelector) + ":" + String((int32)vt.getProperty (propertyname)));
+        sendNetworkMessage(message);
+    }
+}
+
+int AserveController::getBitwiseParameter(const int bitwiseSelector)
+{
+    ValueTree vt = model->getValueTree()->getChildWithName(BitwiseSelectorManagerSettings::SectionName);
+    String propertyname(BitwiseSelectorManagerSettings::Names[0].toString()+String(bitwiseSelector));
+    return vt.getProperty (propertyname);
 }
 
 //Network
@@ -54,44 +99,154 @@ void AserveController::sendNetworkMessage(const String& message)
         network->sendMessage(message);
 }
 
+bool AserveController::checkRange(const String &parameter, const float value, const float min, const float max)
+{
+    //IMPORTANT - NEED TO FIND A CROSS PLATFORM METHOD FOR CHECKING FOR INF and NaN! as 
+	//these may get through this check.
+	bool inRange = (value > max || value < min) ? false : true;
+    
+    if (!inRange) 
+    {
+//        if (gui) 
+//        {
+//            gui->postErrorMessage(parameter + " Out of Range: " + String(value) + "  " + "Range: " + String(min) + "-" + String(max));
+//        }
+    }
+	
+	return inRange;
+    
+}
+
 void AserveController::parseNetworkMessage(const String& message)
 {
-    if(message.startsWith("sub"))
+    if(message.startsWithChar('a'))
 	{
-		//owner.sendGuiActionMessage(string);
+		parseAudioNetworkMessage(message.fromFirstOccurrenceOf(":", false, false));
 	}
-	else
+	else if(message.startsWithChar('g'))
 	{
-        if (audio) 
-            audio->parseMessage(message);
+        parseGuiNetworkMessage(message.fromFirstOccurrenceOf(":", false, false));
 	}
+}
+
+void AserveController::parseAudioNetworkMessage(const String& message)
+{
+    if(message.startsWithChar('o'))//oscillator
+    {
+        String oscillatorString(message.fromFirstOccurrenceOf(":", false, false)); 
+        int index = oscillatorString.getIntValue();
+        oscillatorString = oscillatorString.fromFirstOccurrenceOf(":", false, false); 
+        float frequency = oscillatorString.getFloatValue();
+        oscillatorString = oscillatorString.fromFirstOccurrenceOf(":", false, false);
+        float amplitude = oscillatorString.getFloatValue();
+        oscillatorString = oscillatorString.fromFirstOccurrenceOf(":", false, false);
+        int waveform = oscillatorString.getIntValue();
+        
+        if(   checkRange("Oscillator Number", index, 0, OscillatorManager::NumOscillators-1) 
+           && checkRange("Oscillator Frequency", frequency, 0.f, 20000.f) 
+           && checkRange("Oscillator Amplitude", amplitude, 0.f, 1.f) 
+           && checkRange("Oscillator Waveform", waveform, 0, OscillatorManager::NumWaveforms-1)  )
+        {
+            if (audio) 
+                audio->setOscillator(index, frequency, amplitude, waveform);
+            
+        }
+    }
+    else if(message.startsWithChar('p'))//play sample
+    {
+        String playString(message.fromFirstOccurrenceOf(":", false, false)); 
+        int index = playString.getIntValue();
+        playString = playString.fromFirstOccurrenceOf(":", false, false); 
+        float gain = playString.getFloatValue();
+        
+        if(   checkRange("Sample Number", index, 0, AudioFilePlayerManager::NumPlayers-1) 
+           && checkRange("Sample Gain", gain, 0.f, 1.f) )
+        {
+            playFile(Network, index, gain);
+        }
+    }
+    else if(message.startsWithChar('l'))//load sample
+    {
+        String loadString(message.fromFirstOccurrenceOf(":", false, false)); 
+        int index = loadString.getIntValue();
+        loadString = loadString.fromFirstOccurrenceOf(":", false, false); 
+        
+        if(checkRange("Sample Number", index, 0, AudioFilePlayerManager::NumPlayers-1))
+        {
+            loadFile(Network, index, loadString);
+        }
+    }
+}
+
+void AserveController::parseGuiNetworkMessage(const String& message)
+{
+    if(message.startsWithChar('b'))
+    {
+        String bitwiseString(message.fromFirstOccurrenceOf(":", false, false)); 
+        int index = bitwiseString.getIntValue();
+        bitwiseString = bitwiseString.fromFirstOccurrenceOf(":", false, false); 
+        int newValue = bitwiseString.getIntValue();
+        
+        if(checkRange("Row number", index, 0, BitwiseSelectorManager::NumSelectors) 
+           && checkRange("Sequence value", newValue, 0, 65535))
+        {
+            setBitwiseParameter(index, newValue);            
+        }
+    }
 }
 
 //Audio
-void AserveController::stopAllAudio()
+void AserveController::reset()
 {
     if (audio)
         audio->stopAll();
+    
+    if (gui && model)
+        GuiSettings::initGuiSettings(model->getValueTree());
+        
 }
 
-void AserveController::audioFile(const Sources source, const int fileIndex)
+void AserveController::playFile(const Sources source, const int fileIndex)
 {
     if (source == Gui) 
     {
         if (audio)
-            audio->audioFile(fileIndex);
+            audio->playFile(fileIndex);
     }
     
 }
 
-void AserveController::audioFile(const Sources source, const int fileIndex, const String &newFilePath)
+void AserveController::playFile(const Sources source, const int fileIndex, const float gain)
+{
+    if (source == Network) 
+    {
+        if (audio)
+            audio->playFile(fileIndex, gain);
+    }
+}
+
+void AserveController::loadFile(const Sources source, const int fileIndex, const String &newFilePath)
 {
     if (source == Gui) 
     {
         setAudioFileParameter(fileIndex, newFilePath);  //need to keep the tree in sync with the GUI - has to happen first is it may be reset by the audio object
-        if (audio)
-            audio->audioFile(fileIndex, newFilePath);
-        
     }
+    if (audio)
+        audio->loadFile(fileIndex, newFilePath);
+        
     
+    
+}
+//I don't think the source matters here?
+void AserveController::bitwise(const Sources source, const int x, const int y)
+{
+    if (source == Gui) 
+    {
+        toggleBitwiseParameter(x, y);
+    }
+}
+
+int AserveController::getBitwise(const int selectorIndex)
+{
+    return getBitwiseParameter(selectorIndex);
 }

@@ -48,11 +48,10 @@ void AudioFileSelectorManager::removeListener(Listener *listenerToRemove)
 //callbacks==========================================================================
 void AudioFileSelectorManager::resized()
 {
-    int x = getWidth();
-    int y = getHeight()/AudioFilePlayerManager::NumPlayers;
+    float y_frac = 1.f/AudioFilePlayerManager::NumPlayers;
     for (int i = 0; i < AudioFilePlayerManager::NumPlayers; ++i) 
     {
-        selectors[i]->setBounds(2, (y*i)+2, x-4, y-4);
+        selectors[i]->setBoundsRelative(0.f, y_frac*i, 1.f, y_frac);
     }
 }
 
@@ -72,16 +71,6 @@ void AudioFileSelectorManager::valueTreePropertyChanged (ValueTree& treeWhosePro
                 selectors[selectorIndex]->setFileName(treeWhosePropertyHasChanged.getProperty(property));
             }
         }
-        
-//        {
-//            int state = treeWhosePropertyHasChanged.getProperty(AudioFileSelectorManagerSettings::Names[AudioFileSelectorManagerSettings::PlayState]);
-//            std::cout
-//        }
-//        else if (property == GuiSettings::Names[GuiSettings::BitRepresentationVisible]) 
-//        {
-//            bitwiseVisible = treeWhosePropertyHasChanged.getProperty(GuiSettings::Names[GuiSettings::BitRepresentationVisible]);
-//            //bitwise->setVisible(bitwiseVisible);
-//        }
     }
 }
 

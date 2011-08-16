@@ -44,22 +44,15 @@ AudioFileSelector::~AudioFileSelector()
 
 void AudioFileSelector::setPlayState (const int playState)
 {
-    if (playState == -1) 
-    {
-        playButton->setEnabled (false);
-    }
-    else 
-    {
-        playButton->setEnabled (true);
-        playButton->setToggleState(static_cast<bool> (playState), false);
-    }
+    postMessage(new Message(PlayMessage, playState, 0, 0));
 }
 
 void AudioFileSelector::setFileName (const String& path)
 {
-    fileChooser->setCurrentFile (File(path), false, false);
+    postMessage(new Message(FileMessage, 0, 0, new String(path)));
 }
 
+//Listeners
 void AudioFileSelector::addListener(Listener *listenerToAdd)
 {
     if (listenerToAdd != 0) 
@@ -96,4 +89,27 @@ void AudioFileSelector::filenameComponentChanged (FilenameComponent* filenameCom
 void AudioFileSelector::buttonClicked (Button* button)
 {
     listeners.call(&Listener::audioFilePlayButtonClicked, this);
+}
+
+void AudioFileSelector::handleMessage (const Message& message)
+{
+    if (message.intParameter1 == PlayMessage) 
+    {
+        int playState = message.intParameter2;
+        if (playState == -1) 
+        {
+            playButton->setEnabled (false);
+        }
+        else 
+        {
+            playButton->setEnabled (true);
+            playButton->setToggleState(static_cast<bool> (playState), false);
+        }
+    }
+    else if(message.intParameter1 == FileMessage)
+    {
+        String *stringp = (String*)message.pointerParameter;
+        fileChooser->setCurrentFile (File(*stringp), false, false);
+        delete stringp;
+    }
 }

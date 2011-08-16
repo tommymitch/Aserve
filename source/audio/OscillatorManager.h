@@ -22,7 +22,8 @@ class OscillatorManager : public AudioSource
 public:
     enum OscillatorManagerConstants 
     {
-        NumOscillators = 16
+        NumOscillators = 16,
+        NumWaveforms = WaveOscillator::NumWaveforms
     };
     /** 
      Constructor 

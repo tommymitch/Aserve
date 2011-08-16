@@ -25,6 +25,7 @@ AserveComponent::AserveComponent()
     if (controller) 
     {
         controller->setModelObject(model);
+        controller->setGuiObject(gui);
         controller->setNetworkObject(network);
         controller->setAudioObject(audio);
     }
@@ -38,7 +39,7 @@ AserveComponent::AserveComponent()
     gui->addValueTreeListeners(model->getValueTree());
     
     //populate the value tree
-    GuiSettings::buildDefaultGuiSettings(model->getValueTree());
+    GuiSettings::buildGuiSettings(model->getValueTree());
 }
 
 AserveComponent::~AserveComponent()

@@ -55,6 +55,7 @@ public:
      Internal storage for connected objects
      */
     void setModelObject(AserveModel* modelObject) { model = modelObject; }
+    void setGuiObject(AserveGui* guiObject) { gui = guiObject; }
     void setAudioObject(AserveAudio* audioObject) { audio = audioObject; }
     void setNetworkObject(AserveNetwork* networkObject) { network = networkObject; }
 
@@ -79,23 +80,55 @@ public:
      */
     void setAudioFileParameter(const int fileIndex, const int playState);
     
+    /**
+     Sets the bitwise values
+     */
+    void toggleBitwiseParameter(const int x, const int y);
+    
+    /**
+     Gets the value of a bitwise row
+     */
+    int getBitwiseParameter(const int bitwiseSelector);
+    
+    /**
+     Sets the value of a bitwise row
+     */
+    void setBitwiseParameter(const int bitwiseSelector, const int newValue);
+    
     //Audio
     /**
-     Stops all oscillators and files from playing
+     Resets the applicaiton to it's initial state
      */
-    void stopAllAudio();
+    void reset();
     
     /**
      handles the audio file play control from the gui to control the audio and from the 
      audio to control the gui (via the value tree)
      */
-    void audioFile(const Sources source, const int fileIndex);
+    void playFile(const Sources source, const int fileIndex);
+    
+    /**
+     handles the audio file play control from the gui to control the audio and from the 
+     audio to control the gui (via the value tree)
+     */
+    void playFile(const Sources source, const int fileIndex, const float gain);
     
     /**
      handles the audio file name control from the gui to control the files loaded by the audio object and from the 
      audio object to control the gui (via the value tree)
      */
-    void audioFile(const Sources source, const int fileIndex, const String &newFilePath);
+    void loadFile(const Sources source, const int fileIndex, const String &newFilePath);
+    
+    //Gui
+    /**
+     handles the control of
+     */
+    void bitwise(const Sources source, const int x, const int y);
+    
+    /**
+     gets the value of a row of the bitwise selector argument is row: 0 (top) - 7 (bottom)
+     */
+    int getBitwise(const int selectorIndex);
     
     //Network
     /**
@@ -104,13 +137,30 @@ public:
     void sendNetworkMessage(const String& message);
     
     /**
+     Checks a paramater to see if it is in range - 
+     this should be a more general function in a utilities class
+     */
+	bool checkRange(const String &parameter, const float value, const float min, const float max);
+    
+    /**
      Parses the network messages and distributes commands acordingly
      */
     void parseNetworkMessage(const String& message);
     
+    /**
+     Parse audio message
+     */
+    void parseAudioNetworkMessage(const String& message);
+    
+    /**
+     Parse gui message
+     */
+    void parseGuiNetworkMessage(const String& message);
+    
 private:
     //pointers to the external objects controlled through here
     AserveModel *model;
+    AserveGui *gui;
     AserveAudio *audio;
     AserveNetwork *network;
     
