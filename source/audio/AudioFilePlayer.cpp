@@ -9,15 +9,20 @@
 
 #include "AudioFilePlayer.h"
 
-AudioFilePlayer::AudioFilePlayer() : currentAudioFileSource(0)
+AudioFilePlayer::AudioFilePlayer() : currentAudioFileSource(0), thread ("audio file preview")
 {
+    thread.startThread (3);
     transportSource.addChangeListener(this);
 }
 
 
 AudioFilePlayer::~AudioFilePlayer()
 {
-    transportSource.removeChangeListener(this); 
+    transportSource.removeChangeListener(this);
+	transportSource.stop ();
+    transportSource.setSource (0);
+    currentAudioFileSource = nullptr;
+	thread.stopThread(250);
 }
 
 void AudioFilePlayer::addListener(Listener *listenerToAdd)
@@ -67,6 +72,7 @@ void AudioFilePlayer::loadAudioFile (const String& path)
 			// ..and plug it into our transport source
 			transportSource.setSource (currentAudioFileSource,
                                                   32768, // tells it to buffer this many samples ahead
+                                                  &thread,
                                                   reader->sampleRate);
 		}
         else 

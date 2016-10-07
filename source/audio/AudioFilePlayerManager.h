@@ -10,7 +10,7 @@
 #ifndef H_AUDIOFILEPLAYERMANAGER
 #define H_AUDIOFILEPLAYERMANAGER
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "AudioFilePlayer.h"
 
 /**

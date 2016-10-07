@@ -12,17 +12,7 @@
 //Network server
 SingleSocket::SingleSocket () : connection(NULL)
 {
-    if (start() == false)
-	{
-		AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-									 PROJECT_NAME,"Unable to start server - port 8000 must be in use.\n if you're not sure what to do about it restart your machine and pray...");
-	}
-    else 
-    {
-        //NEED TO COMMUNICATE TO THE GUI THAT EVERYTHINGS GOOD
-        //	if (openedOk)
-        //		appendMessage (T("Waiting for aserve requests..."));
-    }
+    
 }
 
 SingleSocket::~SingleSocket ()
@@ -46,12 +36,14 @@ void SingleSocket::connectionLost()
 {
     if (connection != NULL) 
         disconnected();
-    postMessage(new Message(Disconnected,0,0,0));//this has to happen on another thread otherwise we're deleting our own thread
+    postMessage(new SocketMessage(Disconnected));//this has to happen on another thread otherwise we're deleting our own thread
 }
 
 void SingleSocket::handleMessage (const Message& message)
 {
-    if (message.intParameter1 == Disconnected) 
+    const SocketMessage& sMessage = dynamic_cast<const SocketMessage&> (message);
+    
+    if (sMessage.command == Disconnected) 
     {
         connection = NULL;
     }

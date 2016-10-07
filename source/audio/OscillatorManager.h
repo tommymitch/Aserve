@@ -10,7 +10,7 @@
 #ifndef H_OSCILLATORMANAGER
 #define H_OSCILLATORMANAGER
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "AserveOscillators.h"
 
 /**

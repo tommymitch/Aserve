@@ -9,7 +9,7 @@
 #ifndef H_ASERVEWINDOW
 #define H_ASERVEWINDOW
 
-#include <juce.h>
+#include "../JuceLibraryCode/JuceHeader.h"
 
 class AserveWindow  : public DocumentWindow
 {

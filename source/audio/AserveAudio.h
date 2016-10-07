@@ -10,10 +10,10 @@
 #ifndef H_ASERVEAUDIO
 #define H_ASERVEAUDIO
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "AudioFilePlayerManager.h"
 #include "OscillatorManager.h"
-#include "Scope.h"
+#include "../gui/Scope.h"
 
 /**
  Where all audio and midi computation is done.
@@ -49,6 +49,11 @@ public:
      Returns the device manager
      */
     AudioDeviceManager* getDeviceManager(){return &audioDeviceManager;}
+    
+    /**
+     Saves the settings to the settings file
+     */
+    bool saveSettings();
     
     /**
     Sets the scope object so that audio is streamed to the object for display
@@ -87,6 +92,11 @@ public:
     void setOscillator(const int index, const float frequency, const float amplitude, const int waveform);
     
     /**
+     sends a midinote on the current midiport
+     */
+    void setMidi(const unsigned char status, const unsigned char data1, const unsigned char data2);
+    
+    /**
      Commands parser for all audio commands
      */
     void parseMessage(const String& message);
@@ -101,6 +111,7 @@ public:
     virtual void audioFileNameChanged(const int audioFileIndex, const String &path);
     virtual void audioFilePlayStateChanged(const int audioFileIndex, const AudioFilePlayerManager::PlayState state);
 private:
+    ScopedPointer<File> audioSettings;         //for saving audio settings
 	AudioDeviceManager audioDeviceManager;  //audio device
     MixerAudioSource mixerSource;           //all audio objects will be mixed into this
     AudioSourcePlayer audioSourcePlayer;    //and then playback using this

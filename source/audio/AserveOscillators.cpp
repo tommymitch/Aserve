@@ -8,7 +8,7 @@
  */
 
 #include "AserveOscillators.h"
-#include <juce.h> // this is just for the juce PI and maths stuff
+#include "../JuceLibraryCode/JuceHeader.h" // this is just for the juce PI and maths stuff
 
 #include <limits>
 
@@ -16,8 +16,8 @@
 // Oscillator base class
 Oscillator::Oscillator() 
 :		frequency (1000.0),
+        amplitude (0.0f),
 		sampleRate (44100.0),
-		amplitude (0.0f),
 		tailOff(0.0)
 {
 	

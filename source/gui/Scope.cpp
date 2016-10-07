@@ -130,7 +130,7 @@ void Scope::paint (Graphics& g)
 {
 	calculateScopeBuffers();
 	
-	g.fillAll (Colours::lightgrey);
+	g.fillAll (Colours::lightslategrey);
 	g.setColour (Colours::darkgrey);
 	
 	const int top = getHeight();

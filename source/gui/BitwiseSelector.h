@@ -10,7 +10,7 @@
 #ifndef H_BITWISESELECTOR
 #define H_BITWISESELECTOR
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 /**
  Top level of all gui objects
@@ -78,6 +78,14 @@ private:
     //Listener
     ListenerList<Listener> listeners;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BitwiseSelector)
+};
+
+class BitwiseMessage : public Message
+{
+public:
+    BitwiseMessage(const int bitsValue_) 
+    : bitsValue(bitsValue_) {}
+    const int bitsValue;
 };
 
 #endif //H_BITWISESELECTOR

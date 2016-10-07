@@ -10,16 +10,15 @@
 #ifndef H_AUDIOFILESELECTOR
 #define H_AUDIOFILESELECTOR
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 class PlayButton : public TextButton 
 {
 public:
     PlayButton(const String buttonName, const String toolTip) : TextButton(buttonName, toolTip) {}
-    const Font 	getFont (){return Font ("Wingdings 3", jmin(getHeight(),getWidth())/1.5f, Font::plain);}
+    Font 	getFont (){return Font ("Wingdings 3", jmin(getHeight(),getWidth())/1.5f, Font::plain);}
 private:
 };
-
 
 /**
  Holds the gui components of a AudioFile selector
@@ -97,6 +96,17 @@ private:
     ListenerList<Listener> listeners;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioFileSelector)
 };
+
+class AudioFileMessage : public Message
+{
+public:
+    AudioFileMessage(const AudioFileSelector::MessageTypes type_, const int playState_, const String path_ = String::empty) 
+    : type(type_), playState(playState_), path(path_) {}
+    const AudioFileSelector::MessageTypes type;
+    const int playState;
+    const String path;
+};
+
 
 
 #endif //H_AUDIOFILESELECTOR

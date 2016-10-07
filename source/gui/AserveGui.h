@@ -10,8 +10,9 @@
 #ifndef H_ASERVEGUI
 #define H_ASERVEGUI
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "Scope.h"
+#include "ErrorTextBox.h"
 #include "AudioFileSelectorManager.h"
 #include "BitwiseSelectorManager.h"
 
@@ -23,6 +24,7 @@ namespace GuiSettings
     {
         AudioFilesVisible,
         BitRepresentationVisible,
+        NetworkConnectionIndicator,
         
         numSettings
     };
@@ -30,13 +32,15 @@ namespace GuiSettings
     static const Identifier Names[] = 
     {
         "AudioFilesVisible",
-        "BitRepresentationVisible"
+        "BitRepresentationVisible",
+        "NetworkConnectionIndicator"
     };
     
     static const var Values[] = 
     {
         false,		//AudioFilesVisible
-        false		//BitRepresentationVisible
+        false,		//BitRepresentationVisible
+        false       //NetworkConnectionIndicator
     };
     
     static void buildGuiSettings(ValueTree* treeToFill)
@@ -52,7 +56,9 @@ namespace GuiSettings
         AudioFileSelectorManagerSettings::buildDefaultAudioFileSelectorManagerSettings(treeToFill);
         BitwiseSelectorManagerSettings::buildDefaultBitwiseSelectorManagerSettings(treeToFill);
 	}
-    
+    /**
+     Maybe this should be initGuiSubwindowSettings
+     */
     static void initGuiSettings(ValueTree* treeToFill)
     {
         ValueTree guiSettingsTree = treeToFill->getChildWithName(GuiSettings::SectionName);
@@ -61,6 +67,17 @@ namespace GuiSettings
     }
 }
 
+/**
+ Message object for this class
+ */
+
+class GuiMessage : public Message
+{
+public:
+    GuiMessage(bool connected_) : connected(connected_) {}
+    bool connected;
+};
+
 
 /**
  Top level of all gui objects
@@ -68,7 +85,8 @@ namespace GuiSettings
 class AserveGui  :  public Component,
                     public ValueTree::Listener,
                     public AudioFileSelectorManager::Listener,
-                    public BitwiseSelectorManager::Listener
+                    public BitwiseSelectorManager::Listener,
+                    public MessageListener
 {
 public:
     /**
@@ -79,6 +97,11 @@ public:
      Gui destructor
      */
     ~AserveGui();
+    
+    /**
+     Displays an error message on the GUI
+     */
+    void showErrorMessage(const String& message);
     
     /**
      Allows the gui to add all value tree listeners
@@ -108,12 +131,16 @@ public:
     virtual void audioFilePlayButtonClicked(const int audioFileIndex);
     //BitwiseSelector callbacks
     virtual void bitwiseSelectorClicked(const int x, const int y);
+    //Message
+    void handleMessage (const Message& message);
     
 private:
     bool samplesVisible;
     bool bitwiseVisible;
 
     ScopedPointer<Scope> scope;
+    ScopedPointer<ErrorTextBox> errorBox;
+    ScopedPointer<Label> connectionIndicator;
     ScopedPointer<AudioFileSelectorManager> audioFileSelectors;
     ScopedPointer<BitwiseSelectorManager> bitwiseSelectors;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AserveGui)

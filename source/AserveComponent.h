@@ -9,12 +9,12 @@
 #ifndef H_ASERVECOMPONENT
 #define H_ASERVECOMPONENT
 
-#include <juce.h>
-#include "AserveModel.h"
-#include "AserveController.h"
-#include "AserveGui.h"
-#include "AserveNetwork.h"
-#include "AserveAudio.h"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "model/AserveModel.h"
+#include "controller/AserveController.h"
+#include "gui/AserveGui.h"
+#include "network/AserveNetwork.h"
+#include "audio/AserveAudio.h"
 
 //#include "Aserve.h"
 
@@ -44,8 +44,8 @@ public:
 	void resized();
 	void paint (Graphics &g); 
     //==============================================================================
-    const StringArray getMenuBarNames();
-    const PopupMenu getMenuForIndex (int topLevelMenuIndex, const String& menuName);
+    StringArray getMenuBarNames();
+    PopupMenu getMenuForIndex (int topLevelMenuIndex, const String& menuName);
 	void menuItemSelected (int menuItemID, int topLevelMenuIndex);
 	//==============================================================================
 private:

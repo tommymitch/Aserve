@@ -10,9 +10,9 @@
 #ifndef H_AUDIOFILESELECTORMANAGER
 #define H_AUDIOFILESELECTORMANAGER
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "AudioFileSelector.h"
-#include "AudioFilePlayerManager.h"     //to access AudioFilePlayerManager::NumPlayers
+#include "../audio/AudioFilePlayerManager.h"     //to access AudioFilePlayerManager::NumPlayers
 
 /**
  Value Tree for the audio file player settings config.

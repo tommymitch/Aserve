@@ -10,11 +10,11 @@
 #ifndef H_ASERVECONTROLLER
 #define H_ASERVECONTROLLER
 
-#include <juce.h>
-#include "AserveModel.h"
-#include "AserveAudio.h"
-#include "AserveNetwork.h"
-#include "AserveGui.h"
+#include "../../JuceLibraryCode/JuceHeader.h"
+#include "../model/AserveModel.h"
+#include "../audio/AserveAudio.h"
+#include "../network/AserveNetwork.h"
+#include "../gui/AserveGui.h"
 
 /**
  Controller class all interactions between the toplevel objects are managed
@@ -94,6 +94,11 @@ public:
      Sets the value of a bitwise row
      */
     void setBitwiseParameter(const int bitwiseSelector, const int newValue);
+    
+    /**
+     Sets the connection state in the model so that the gui can update
+     */
+    void setNetworkConnectionParameter(bool isConnected);
     
     //Audio
     /**

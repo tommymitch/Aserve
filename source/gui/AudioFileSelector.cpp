@@ -33,7 +33,7 @@ AudioFileSelector::AudioFileSelector()
     addAndMakeVisible (fileChooser);
     
     fileChooser->addListener (this);
-    fileChooser->setBrowseButtonText (T("..."));
+    fileChooser->setBrowseButtonText ("...");
 }
 
 AudioFileSelector::~AudioFileSelector()
@@ -44,12 +44,12 @@ AudioFileSelector::~AudioFileSelector()
 
 void AudioFileSelector::setPlayState (const int playState)
 {
-    postMessage(new Message(PlayMessage, playState, 0, 0));
+    postMessage(new AudioFileMessage(PlayMessage, playState));
 }
 
 void AudioFileSelector::setFileName (const String& path)
 {
-    postMessage(new Message(FileMessage, 0, 0, new String(path)));
+    postMessage(new AudioFileMessage(FileMessage, false, path));
 }
 
 //Listeners
@@ -93,9 +93,10 @@ void AudioFileSelector::buttonClicked (Button* button)
 
 void AudioFileSelector::handleMessage (const Message& message)
 {
-    if (message.intParameter1 == PlayMessage) 
+    const AudioFileMessage& afMessage = dynamic_cast<const AudioFileMessage&> (message);
+    if (afMessage.type == PlayMessage) 
     {
-        int playState = message.intParameter2;
+        int playState = afMessage.playState;
         if (playState == -1) 
         {
             playButton->setEnabled (false);
@@ -106,10 +107,8 @@ void AudioFileSelector::handleMessage (const Message& message)
             playButton->setToggleState(static_cast<bool> (playState), false);
         }
     }
-    else if(message.intParameter1 == FileMessage)
+    else if(afMessage.type == FileMessage)
     {
-        String *stringp = (String*)message.pointerParameter;
-        fileChooser->setCurrentFile (File(*stringp), false, false);
-        delete stringp;
+        fileChooser->setCurrentFile (File(afMessage.path), false, false);
     }
 }

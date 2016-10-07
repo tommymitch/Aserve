@@ -10,7 +10,7 @@
 #ifndef H_SINGLESOCKET
 #define H_SINGLESOCKET
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 /**
 Server for clients to connect to. Only one connection can be handled at a time.
@@ -24,6 +24,14 @@ public:
         Disconnected,
         
         NumCommands
+    };
+    
+    class SocketMessage : public Message
+    {
+    public:
+        SocketMessage(const MessageCommands command_)  
+        : command(command_) {}
+        const MessageCommands command;
     };
     
     //==========================================================================

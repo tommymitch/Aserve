@@ -10,7 +10,7 @@
 #ifndef H_SCOPE
 #define H_SCOPE
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 /**
  Top level of all gui objects

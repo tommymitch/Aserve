@@ -79,7 +79,7 @@ void BitwiseSelectorManager::bitwiseSelectorClicked(const BitwiseSelector* selec
     {
         if (selectors[selectorIndex] == selector) 
         {
-            listeners.call(&Listener::bitwiseSelectorClicked, bitNumber, selectorIndex);
+            listeners.call(&BitwiseSelectorManager::Listener::bitwiseSelectorClicked, bitNumber, selectorIndex);
         }
     }
 }

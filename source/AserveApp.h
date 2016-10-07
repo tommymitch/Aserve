@@ -9,7 +9,7 @@
 #ifndef H_ASERVEAPP
 #define H_ASERVEAPP
 
-#include <juce.h>
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "AserveWindow.h"
 
 //==============================================================================

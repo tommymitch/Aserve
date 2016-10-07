@@ -10,7 +10,7 @@
 #ifndef H_BITWISESELECTORMANAGER
 #define H_BITWISESELECTORMANAGER
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 #include "BitwiseSelector.h"
 
 

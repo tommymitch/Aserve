@@ -10,7 +10,7 @@
 #ifndef H_ASERVEMODEL
 #define H_ASERVEMODEL
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 /**
  Top level of the model class where all internal data is stored

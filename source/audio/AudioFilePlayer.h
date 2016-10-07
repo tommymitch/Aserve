@@ -10,7 +10,7 @@
 #ifndef H_AUDIOFILEPLAYER
 #define H_AUDIOFILEPLAYER
 
-#include <juce.h>
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 /**
  Top level of the model class where all internal data is stored
@@ -102,6 +102,9 @@ private:
 	// this is the actual stream that's going to read from the audio file.
 	ScopedPointer<AudioFormatReaderSource> currentAudioFileSource;
 	File currentFile;
+    
+    //the thread for previewing
+    TimeSliceThread thread;
     
     //Listener
     ListenerList<Listener> listeners;

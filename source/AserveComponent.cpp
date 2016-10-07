@@ -30,7 +30,6 @@ AserveComponent::AserveComponent()
         controller->setAudioObject(audio);
     }
     
-    
     //add the scope to the audio object
     audio->setScopeObject(gui->getScopePointer());
     
@@ -40,6 +39,13 @@ AserveComponent::AserveComponent()
     
     //populate the value tree
     GuiSettings::buildGuiSettings(model->getValueTree());
+    
+    if (network->start() == false)
+	{
+		AlertWindow::showMessageBox (AlertWindow::WarningIcon,
+									 "Aserve" ,"Unable to start server - port 8000 must be in use.\n if you're not sure what to do about it restart your machine and pray...");
+	}
+    
 }
 
 AserveComponent::~AserveComponent()
@@ -72,20 +78,20 @@ void AserveComponent::paint (Graphics &g)
 }
 
 //==============================================================================
-const StringArray AserveComponent::getMenuBarNames()
+StringArray AserveComponent::getMenuBarNames()
 {
 	const char* const names[] = { "File", 0 };
 	
 	return StringArray (names);
 }
 
-const PopupMenu AserveComponent::getMenuForIndex (int topLevelMenuIndex, const String& menuName)
+PopupMenu AserveComponent::getMenuForIndex (int topLevelMenuIndex, const String& menuName)
 {
 	PopupMenu menu;
 	
 	if (topLevelMenuIndex == 0)
 	{
-        menu.addItem(AUDIOPREFS, "Audio Prefrences", true, false);
+        menu.addItem(AUDIOPREFS, "Audio Preferences", true, false);
 		menu.addSeparator();
 
         AserveController *ac = AserveController::getInstance();
@@ -107,6 +113,7 @@ void AserveComponent::menuItemSelected (int menuItemID, int topLevelMenuIndex)
         if (menuItemID == AUDIOPREFS) 
         {
             gui->showAudioSettings(this, audio->getDeviceManager());
+            audio->saveSettings();
         }
         else if (menuItemID == AUDIOFILES) 
         {

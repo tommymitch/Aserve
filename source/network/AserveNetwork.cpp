@@ -8,9 +8,8 @@
  */
 
 #include "AserveNetwork.h"
-#include "AserveController.h"
+#include "../controller/AserveController.h"
 
-juce_ImplementSingleton (AserveNetwork)
 
 AserveNetwork::AserveNetwork()
 {
@@ -19,27 +18,33 @@ AserveNetwork::AserveNetwork()
 
 AserveNetwork::~AserveNetwork()
 {
-    
-    clearSingletonInstance();
+
 }
 
 //Callbacks 
 void AserveNetwork::connected()
 {
-    std::cout << "connected\n";
+    AserveController* ac = AserveController::getInstance();
+    if (ac) 
+    {
+        //std::cout << "con\n";
+        ac->setNetworkConnectionParameter(true);
+    }
 }
 
 void AserveNetwork::disconnected()
 {
-    std::cout << "disconnected\n";
     AserveController* ac = AserveController::getInstance();
     if (ac) 
+    {
+        //std::cout << "dis\n";
         ac->reset();
+    }
 }
 
 void AserveNetwork::messageReceived (const String& message)
 {
     AserveController* ac = AserveController::getInstance();
-    if(ac)
+    if (ac)
         ac->parseNetworkMessage(message);
 }

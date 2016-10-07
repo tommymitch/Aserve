@@ -41,7 +41,7 @@ void AserveApp::systemRequestedQuit()
 const String AserveApp::getApplicationName()
 {
 	// The name for the application
-	return PROJECT_NAME;
+	return "Aserve";
 }
 
 const String AserveApp::getApplicationVersion()
@@ -51,12 +51,12 @@ const String AserveApp::getApplicationVersion()
 
 bool AserveApp::moreThanOneInstanceAllowed()
 {
-	return false;
+	return true;
 }
 
 void AserveApp::anotherInstanceStarted(const String& commandLine)
 {
-	
+
 }
 
 //==============================================================================

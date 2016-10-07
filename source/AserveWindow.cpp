@@ -14,7 +14,7 @@ AserveWindow::AserveWindow()
 :   
 // Initialise the base 'DocumentWindow'...
 DocumentWindow(
-				T(PROJECT_NAME),				// Set the text to use for the title
+				"Aserve",				// Set the text to use for the title
 				Colours::azure,					// Set the colour of the window
 				DocumentWindow::allButtons,		// Set which buttons are displayed
 				true							// This window should be added to the desktop

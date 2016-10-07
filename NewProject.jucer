@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="kihC2W" name="Aserve" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.teamaxe.aserve" jucerVersion="3.0.0">
+  <MAINGROUP id="o96d9z" name="Aserve">
+    <GROUP id="{4B21198E-5EC4-CC49-5077-567EC4800F87}" name="Source">
+      <FILE id="nQ7o8b" name="Globals.h" compile="0" resource="0" file="Source/Globals.h"/>
+      <FILE id="LTZqCV" name="AserveApp.cpp" compile="1" resource="0" file="Source/AserveApp.cpp"/>
+      <FILE id="x4Mtow" name="AserveApp.h" compile="0" resource="0" file="Source/AserveApp.h"/>
+      <FILE id="rB7l5v" name="AserveComponent.cpp" compile="1" resource="0"
+            file="Source/AserveComponent.cpp"/>
+      <FILE id="CMqbJO" name="AserveComponent.h" compile="0" resource="0"
+            file="Source/AserveComponent.h"/>
+      <FILE id="GJzoIC" name="AserveWindow.cpp" compile="1" resource="0"
+            file="Source/AserveWindow.cpp"/>
+      <FILE id="ZcOfFg" name="AserveWindow.h" compile="0" resource="0" file="Source/AserveWindow.h"/>
+      <GROUP id="{6633D22F-F6E3-23D6-020A-62160A22FB3A}" name="audio">
+        <FILE id="gxVC5w" name="AserveAudio.cpp" compile="1" resource="0" file="Source/audio/AserveAudio.cpp"/>
+        <FILE id="haP6aq" name="AserveAudio.h" compile="0" resource="0" file="Source/audio/AserveAudio.h"/>
+        <FILE id="K6pk2q" name="AserveOscillators.cpp" compile="1" resource="0"
+              file="Source/audio/AserveOscillators.cpp"/>
+        <FILE id="kfxXOm" name="AserveOscillators.h" compile="0" resource="0"
+              file="Source/audio/AserveOscillators.h"/>
+        <FILE id="ev3YZL" name="AudioFilePlayer.cpp" compile="1" resource="0"
+              file="Source/audio/AudioFilePlayer.cpp"/>
+        <FILE id="gtg0m5" name="AudioFilePlayer.h" compile="0" resource="0"
+              file="Source/audio/AudioFilePlayer.h"/>
+        <FILE id="uxO759" name="AudioFilePlayerManager.cpp" compile="1" resource="0"
+              file="Source/audio/AudioFilePlayerManager.cpp"/>
+        <FILE id="nGbNrb" name="AudioFilePlayerManager.h" compile="0" resource="0"
+              file="Source/audio/AudioFilePlayerManager.h"/>
+        <FILE id="cgT9xX" name="OscillatorManager.cpp" compile="1" resource="0"
+              file="Source/audio/OscillatorManager.cpp"/>
+        <FILE id="R0H0UK" name="OscillatorManager.h" compile="0" resource="0"
+              file="Source/audio/OscillatorManager.h"/>
+      </GROUP>
+      <GROUP id="{2FA89456-DF7D-9E13-FDD8-5B284436744B}" name="controller">
+        <FILE id="pXxP17" name="AserveController.cpp" compile="1" resource="0"
+              file="Source/controller/AserveController.cpp"/>
+        <FILE id="yhJpOx" name="AserveController.h" compile="0" resource="0"
+              file="Source/controller/AserveController.h"/>
+      </GROUP>
+      <GROUP id="{AC0F6724-CE5F-1EAB-5CF2-DF5F9234BCCC}" name="gui">
+        <FILE id="WNNrn9" name="AserveGui.cpp" compile="1" resource="0" file="Source/gui/AserveGui.cpp"/>
+        <FILE id="XxoV94" name="AserveGui.h" compile="0" resource="0" file="Source/gui/AserveGui.h"/>
+        <FILE id="K4PTZs" name="AudioFileSelector.cpp" compile="1" resource="0"
+              file="Source/gui/AudioFileSelector.cpp"/>
+        <FILE id="gc8Dsu" name="AudioFileSelector.h" compile="0" resource="0"
+              file="Source/gui/AudioFileSelector.h"/>
+        <FILE id="hNWtMa" name="AudioFileSelectorManager.cpp" compile="1" resource="0"
+              file="Source/gui/AudioFileSelectorManager.cpp"/>
+        <FILE id="z4KtDS" name="AudioFileSelectorManager.h" compile="0" resource="0"
+              file="Source/gui/AudioFileSelectorManager.h"/>
+        <FILE id="u7Fzwc" name="BitwiseSelector.cpp" compile="1" resource="0"
+              file="Source/gui/BitwiseSelector.cpp"/>
+        <FILE id="Qdwebw" name="BitwiseSelector.h" compile="0" resource="0"
+              file="Source/gui/BitwiseSelector.h"/>
+        <FILE id="o6dIX6" name="BitwiseSelectorManager.cpp" compile="1" resource="0"
+              file="Source/gui/BitwiseSelectorManager.cpp"/>
+        <FILE id="Wj4nyC" name="BitwiseSelectorManager.h" compile="0" resource="0"
+              file="Source/gui/BitwiseSelectorManager.h"/>
+        <FILE id="L0YxkM" name="ErrorTextBox.cpp" compile="1" resource="0"
+              file="Source/gui/ErrorTextBox.cpp"/>
+        <FILE id="M4cf4v" name="ErrorTextBox.h" compile="0" resource="0" file="Source/gui/ErrorTextBox.h"/>
+        <FILE id="fYov8j" name="Scope.cpp" compile="1" resource="0" file="Source/gui/Scope.cpp"/>
+        <FILE id="WZJESI" name="Scope.h" compile="0" resource="0" file="Source/gui/Scope.h"/>
+      </GROUP>
+      <GROUP id="{1316D39E-87DF-C07D-A86C-F51C016D3A2A}" name="icon">
+        <FILE id="NOpTrR" name="aserveicon.png" compile="0" resource="1" file="Source/icon/aserveicon.png"/>
+      </GROUP>
+      <GROUP id="{985927AA-A09D-FA29-F3F8-DFEFBD2F3DC1}" name="model">
+        <FILE id="qpp0kv" name="AserveModel.cpp" compile="1" resource="0" file="Source/model/AserveModel.cpp"/>
+        <FILE id="iYcqUx" name="AserveModel.h" compile="0" resource="0" file="Source/model/AserveModel.h"/>
+      </GROUP>
+      <GROUP id="{1BAC6B48-248F-C298-73FD-2234D9DDF320}" name="network">
+        <FILE id="gACxWH" name="AserveNetwork.cpp" compile="1" resource="0"
+              file="Source/network/AserveNetwork.cpp"/>
+        <FILE id="gvEfDm" name="AserveNetwork.h" compile="0" resource="0" file="Source/network/AserveNetwork.h"/>
+        <FILE id="FW4tS6" name="SingleSocket.cpp" compile="1" resource="0"
+              file="Source/network/SingleSocket.cpp"/>
+        <FILE id="AJ6whr" name="SingleSocket.h" compile="0" resource="0" file="Source/network/SingleSocket.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" juceFolder="../../../../libs/juceLatest/juce/modules"
+               smallIcon="NOpTrR" bigIcon="NOpTrR">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="Aserve"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="Aserve"/>
+      </CONFIGURATIONS>
+    </XCODE_MAC>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="../../../../libs/juceLatest/juce/modules"
+            smallIcon="NOpTrR" bigIcon="NOpTrR">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Aserve"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Aserve"/>
+      </CONFIGURATIONS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>

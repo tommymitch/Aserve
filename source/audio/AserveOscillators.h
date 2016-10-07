@@ -8,10 +8,7 @@
 #define H_ASERVEOSCILLATORS
 
 class Oscillator
-{
-	protected:
-	double frequency, amplitude, sampleRate, tailOff; //used by derrived classes
-	
+{	
 	public:
 		Oscillator();
 		virtual ~Oscillator();
@@ -22,6 +19,9 @@ class Oscillator
 		void stop(void);
 		double nextSample(void);
 		virtual double renderWaveShape(void) = 0;
+    
+protected:
+	double frequency, amplitude, sampleRate, tailOff; //used by derrived classes
 };
 
 class SineOscillator : public Oscillator

@@ -80,7 +80,7 @@ void AudioFileSelectorManager::audioFileNameChanged(const AudioFileSelector *sel
     {
         if (selectors[i] == selector) 
         {
-            listeners.call(&Listener::audioFileNameChanged, i, fileName);
+            listeners.call(&AudioFileSelectorManager::Listener::audioFileNameChanged, i, fileName);
         }
     }    
 }
@@ -91,7 +91,7 @@ void AudioFileSelectorManager::audioFilePlayButtonClicked(const AudioFileSelecto
     {
         if (selectors[i] == selector) 
         {
-            listeners.call(&Listener::audioFilePlayButtonClicked, i);
+            listeners.call(&AudioFileSelectorManager::Listener::audioFilePlayButtonClicked, i);
         }
     }
 }

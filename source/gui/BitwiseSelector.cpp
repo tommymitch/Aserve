@@ -30,7 +30,7 @@ BitwiseSelector::~BitwiseSelector()
 
 void BitwiseSelector::setValue(int newValue)
 {
-    postMessage(new Message(newValue,0,0,0));
+    postMessage(new BitwiseMessage(newValue));
 }
 
 //Listeners
@@ -77,7 +77,8 @@ void BitwiseSelector::buttonClicked(Button* button)
 
 void BitwiseSelector::handleMessage (const Message& message)
 {
-    BigInteger bitsValue(message.intParameter1);
+    const BitwiseMessage& bitMessage = dynamic_cast<const BitwiseMessage&> (message);
+    BigInteger bitsValue(bitMessage.bitsValue);
     for (int bit = 0; bit < NumBits; ++bit) 
     {
         bits[bit]->setToggleState(bitsValue[bit],false);

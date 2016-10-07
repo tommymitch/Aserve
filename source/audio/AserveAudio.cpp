@@ -8,7 +8,8 @@
  */
 
 #include "AserveAudio.h"
-#include "AserveController.h"
+#include "../controller/AserveController.h"
+#include "../Globals.h"
 
 AserveAudio::AserveAudio() : scopeObject(NULL)
 {
@@ -16,19 +17,47 @@ AserveAudio::AserveAudio() : scopeObject(NULL)
     audioFiles->addListener(this);
     oscillators = new OscillatorManager();
     
-    const String error = audioDeviceManager.initialise (1, /* number of input channels */
-                                                        2, /* number of output channels */
-                                                        0, /* no XML settings.. */
-                                                        true  /* select default device on failure */);
-	
+    PropertiesFile::Options options;
+    options.applicationName = Globals::getApplicationName();
+    options.filenameSuffix = "settings";
+    options.folderName = "Aserve";
+    options.osxLibrarySubFolder = "Application Support";
+    
+	audioSettings = new File(options.getDefaultFile());
+
+	XmlElement *audioElement = nullptr;
+
+	if(audioSettings->existsAsFile())
+	{
+		XmlDocument audioDoc(*audioSettings);
+		audioElement = audioDoc.getDocumentElement();
+	}
+    else 
+    {
+        audioSettings->create();
+    }
+
+
+    const String error = audioDeviceManager.initialise (1,      /* number of input channels */
+                                                        2,      /* number of output channels */
+                                                        audioElement,      /* loaded XML settings.. */
+                                                        true    /* select default device on failure */);
+
+    if(audioElement) 
+	{
+		delete audioElement;
+        audioElement = nullptr;
+	}
+    
 	if (error.isNotEmpty())
 	{
 		AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-									 T("Aserve"),
-									 T("Couldn't open an output device!\n\n") + error);
+									 Globals::getApplicationName(),
+									 "Couldn't open an output device!\n\n" + error);
 	}
 	else
 	{
+         
 		// add the audio sources to our mixer..
         mixerSource.addInputSource (audioFiles, false);
 		mixerSource.addInputSource (oscillators, false);
@@ -60,11 +89,29 @@ AserveAudio::~AserveAudio()
     audioFiles->removeListener(this);
 }
 
+bool AserveAudio::saveSettings()
+{
+    //save the audioSettings to an xml file....
+	XmlElement *audioElement = audioDeviceManager.createStateXml();
+	if(audioElement)
+	{
+		if(audioElement->writeToFile(*audioSettings, "")==false)
+            std::cout << "Unable to write the audio settings to file\n";
+		delete audioElement;
+        return true;
+	}
+	else 
+	{
+		std::cout << "could not create an audio state xml element\n";
+	}  
+    return false;
+}
+
 void AserveAudio::parseMessage(const String& message)
 {
     String string = message;
     
-    if(string.startsWith(T("osc")))
+    if(string.startsWith("osc"))
     {
         //owner.appendMessage(string);
         String oscString = string.substring(string.indexOfChar(':')+1);//go from first number
@@ -97,7 +144,7 @@ void AserveAudio::parseMessage(const String& message)
         }
         
     }
-    else if(string.startsWith(T("midi")))
+    else if(string.startsWith("midi"))
     {
         //owner.appendMessage(string);
         
@@ -111,7 +158,7 @@ void AserveAudio::parseMessage(const String& message)
         MidiMessage midiMessage(byte1, byte2, byte3);
         (audioDeviceManager.getDefaultMidiOutput())->sendMessageNow(midiMessage);
     }
-    else if(string.startsWith(T("samp")))
+    else if(string.startsWith("samp"))
     {
         //owner.appendMessage(string);
         String sampString = string.substring(string.indexOfChar(':')+1);//go from first number
@@ -151,11 +198,11 @@ void AserveAudio::parseMessage(const String& message)
                                                         //THE LOADAUDIOFILE MESSAGE SHOULD UPDATE THE BUTTONS THROUGH THE VALUE TREE
         
     }	
-    else if(string.startsWith(T("stop")))
+    else if(string.startsWith("stop"))
     {
         stopAll();
     }
-    else if(string.startsWith(T("vol")))
+    else if(string.startsWith("vol"))
     {
         String volString = string.substring(string.indexOfChar(':')+1);//go from first number
         double vol = volString.getDoubleValue();
@@ -171,7 +218,7 @@ bool AserveAudio::inRange(const char *parameter, double value, double min, doubl
     //IMPORTANT - NEED TO FIND A CROSS PLATFORM METHOD FOR CHECKING FOR INF and NaN! as 
 	//these may get through this check.
 	bool inrange = false;
-	(value > max || value < min) ? inrange = false : inrange = true;
+	inrange = (value > max || value < min) ?  false : true;
 	
 //	if(!inrange)        //NEED TO GET THIS ON THE GUI SOMEHOW
 //		sendActionMessage(String(parameter) + T(" Out of Range: ") + String(value) + T("  ")
@@ -219,6 +266,18 @@ void AserveAudio::setOscillator(const int index, const float frequency, const fl
     }
 }
 
+void AserveAudio::setMidi(const unsigned char status, const unsigned char data1, const unsigned char data2)
+{
+    MidiMessage midiMessage(status, data1, data2);
+    MidiOutput* mout = audioDeviceManager.getDefaultMidiOutput();
+    
+    if (mout != 0) 
+    {
+        MidiBuffer mbuf(midiMessage);
+        mout->sendMessageNow(midiMessage);
+    }
+    
+}
 
 //Audio 
 void AserveAudio::audioDeviceAboutToStart (AudioIODevice* device)

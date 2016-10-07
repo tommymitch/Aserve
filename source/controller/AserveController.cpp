@@ -11,7 +11,7 @@
 
 juce_ImplementSingleton (AserveController)
 
-AserveController::AserveController() : model(NULL), audio(NULL), network(NULL), gui(NULL)
+AserveController::AserveController() : model(NULL), gui(NULL), audio(NULL), network(NULL)
 {
     
 }
@@ -85,6 +85,15 @@ void AserveController::setBitwiseParameter(const int bitwiseSelector, const int 
     }
 }
 
+void AserveController::setNetworkConnectionParameter(bool isConnected)
+{
+    if (model) 
+    {
+        ValueTree vt = model->getValueTree()->getChildWithName(GuiSettings::SectionName);
+        vt.setProperty (GuiSettings::Names[GuiSettings::NetworkConnectionIndicator].toString(), isConnected,0);
+    }
+}
+
 int AserveController::getBitwiseParameter(const int bitwiseSelector)
 {
     ValueTree vt = model->getValueTree()->getChildWithName(BitwiseSelectorManagerSettings::SectionName);
@@ -107,10 +116,10 @@ bool AserveController::checkRange(const String &parameter, const float value, co
     
     if (!inRange) 
     {
-//        if (gui) 
-//        {
-//            gui->postErrorMessage(parameter + " Out of Range: " + String(value) + "  " + "Range: " + String(min) + "-" + String(max));
-//        }
+        if (gui) 
+        {
+            gui->showErrorMessage(parameter + " Out of Range: " + String(value) + "  " + "Range: " + String(min) + "-" + String(max) + "\n");
+        }
     }
 	
 	return inRange;
@@ -127,6 +136,11 @@ void AserveController::parseNetworkMessage(const String& message)
 	{
         parseGuiNetworkMessage(message.fromFirstOccurrenceOf(":", false, false));
 	}
+    else 
+    {
+        std::cout << "OtherNetworkMessages!!!:" << message << "\n";
+    }
+
 }
 
 void AserveController::parseAudioNetworkMessage(const String& message)
@@ -176,6 +190,25 @@ void AserveController::parseAudioNetworkMessage(const String& message)
             loadFile(Network, index, loadString);
         }
     }
+    else if(message.startsWithChar('m'))//load sample
+    {
+        String midiString(message.fromFirstOccurrenceOf(":", false, false)); 
+        unsigned char status = midiString.getIntValue();
+        midiString = midiString.fromFirstOccurrenceOf(":", false, false); 
+        unsigned char data1 = midiString.getIntValue();
+        midiString = midiString.fromFirstOccurrenceOf(":", false, false);
+        unsigned char data2 = midiString.getIntValue();
+        
+        if(   checkRange("MIDI Status Byte", status, 128, 255) 
+           && checkRange("MIDI Data Byte 1", data1, 0, 127) 
+           && checkRange("MIDI Data Byte 2", data2, 0, 127) )
+        {
+            if (audio) 
+                audio->setMidi(status, data1, data2);
+            
+        }
+    }
+
 }
 
 void AserveController::parseGuiNetworkMessage(const String& message)
@@ -203,6 +236,8 @@ void AserveController::reset()
     
     if (gui && model)
         GuiSettings::initGuiSettings(model->getValueTree());
+    
+    setNetworkConnectionParameter(false);
         
 }
 

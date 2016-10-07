@@ -16,12 +16,12 @@
  Class where all the network coms are managed this is where all links with the controller 
  should be manged
  */
-class AserveNetwork : public SingleSocket
+class AserveNetwork :   public SingleSocket
 {
 public:
     
     //This is a singleton class
-    juce_DeclareSingleton(AserveNetwork, false);
+    //juce_DeclareSingleton(AserveNetwork, false);
     
     AserveNetwork();
     ~AserveNetwork();
