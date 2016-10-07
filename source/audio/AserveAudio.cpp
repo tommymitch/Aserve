@@ -310,10 +310,15 @@ void AserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage
 	String srawData("midiraw");
 	for(int i = 0; i < message.getRawDataSize();i++)
 	{
+        if (i == 0 && (*rawData & 0xf0) == 0x80) //set note-offs to note-ons
+        {
+            rawData[0] |= 0x90;
+            rawData[2] = 0;
+        }
+        
 		srawData = srawData + String(":") + String(*rawData);
 		rawData++;
 	}
-	
 	if(message.getRawDataSize() == 2)		//if only one databyte pad the other
 		srawData = srawData + String(":") + String(-1);
     
