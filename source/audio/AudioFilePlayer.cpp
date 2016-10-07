@@ -9,7 +9,7 @@
 
 #include "AudioFilePlayer.h"
 
-AudioFilePlayer::AudioFilePlayer() : currentAudioFileSource(0), thread ("audio file preview")
+AudioFilePlayer::AudioFilePlayer() : thread ("audio file preview")
 {
     thread.startThread (3);
     transportSource.addChangeListener(this);

@@ -304,8 +304,11 @@ void AserveAudio::audioDeviceIOCallback (const float** inAudio,int numInChannels
 //Midi
 void AserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage &message)
 {
-    unsigned char *rawData;	
-	rawData = message.getRawData();
+    unsigned char rawData[3];
+    rawData[0] = message.getRawData()[0];
+    rawData[1] = message.getRawData()[1];
+    if (message.getRawDataSize() > 2)
+        rawData[2] = message.getRawData()[2];
 	
 	String srawData("midiraw");
 	for(int i = 0; i < message.getRawDataSize();i++)
@@ -316,8 +319,7 @@ void AserveAudio::handleIncomingMidiMessage(MidiInput *source, const MidiMessage
             rawData[2] = 0;
         }
         
-		srawData = srawData + String(":") + String(*rawData);
-		rawData++;
+		srawData = srawData + String(":") + String(rawData[i]);
 	}
 	if(message.getRawDataSize() == 2)		//if only one databyte pad the other
 		srawData = srawData + String(":") + String(-1);

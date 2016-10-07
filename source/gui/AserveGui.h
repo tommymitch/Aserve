@@ -123,8 +123,11 @@ public:
     //ValueTree==========================================================================
     virtual void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property);
     virtual void valueTreeChildAdded (ValueTree& parentTree,ValueTree& childWhichHasBeenAdded){}
-    virtual void valueTreeChildRemoved (ValueTree& parentTree,ValueTree& childWhichHasBeenRemoved){}
-    virtual void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+    virtual void valueTreeChildRemoved (ValueTree& parentTree,
+                                        ValueTree& childWhichHasBeenRemoved,
+                                        int indexFromWhichChildWasRemoved){}
+    virtual void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved,
+                                             int oldIndex, int newIndex) {}
     virtual void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged){}
     //AudioFileSelectorCallbacks=========================================================
     virtual void audioFileNameChanged(const int audioFileIndex, const String &fileName);

@@ -81,6 +81,6 @@ void BitwiseSelector::handleMessage (const Message& message)
     BigInteger bitsValue(bitMessage.bitsValue);
     for (int bit = 0; bit < NumBits; ++bit) 
     {
-        bits[bit]->setToggleState(bitsValue[bit],false);
+        bits[bit]->setToggleState(bitsValue[bit], dontSendNotification);
     }
 }

@@ -70,6 +70,6 @@ void OscillatorManager::getNextAudioBlock (const AudioSourceChannelInfo& info)
 			sample += (float)(oscillators[oscillatorIndex]->nextSample());
 		
         for (int j = info.buffer->getNumChannels(); --j >= 0;)
-            *info.buffer->getSampleData (j, info.startSample + i) = sample;
+            *info.buffer->getWritePointer (j, info.startSample + i) = sample;
     }
 }

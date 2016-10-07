@@ -107,7 +107,7 @@ void AserveGui::resized()
 
 void AserveGui::valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property)
 {
-    if (treeWhosePropertyHasChanged.getType().toString() == GuiSettings::SectionName) 
+    if (treeWhosePropertyHasChanged.getType() == GuiSettings::SectionName)
     {
         if (property == GuiSettings::Names[GuiSettings::AudioFilesVisible]) 
         {
@@ -153,6 +153,6 @@ void AserveGui::bitwiseSelectorClicked(const int x, const int y)
 void AserveGui::handleMessage (const Message& message)
 {
     const GuiMessage& guiMessage = dynamic_cast<const GuiMessage &> (message);
-    connectionIndicator->setText(guiMessage.connected ? "connected" : "disconnected", false);
+    connectionIndicator->setText(guiMessage.connected ? "connected" : "disconnected", dontSendNotification);
     connectionIndicator->setColour(Label::backgroundColourId, guiMessage.connected ? Colours::green : Colours::red);
 }

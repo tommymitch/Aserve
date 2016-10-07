@@ -16,7 +16,7 @@ AudioFileSelector::AudioFileSelector()
     
     
     
-    playButton = new PlayButton ("u", "click here to play the current audio file");
+    playButton = new TextButton ("u", "click here to play the current audio file");
     playButton->addListener (this);
     playButton->setColour (TextButton::buttonColourId, Colours::white);
     playButton->setColour (TextButton::buttonOnColourId, Colours::grey);
@@ -104,11 +104,11 @@ void AudioFileSelector::handleMessage (const Message& message)
         else 
         {
             playButton->setEnabled (true);
-            playButton->setToggleState(static_cast<bool> (playState), false);
+            playButton->setToggleState(static_cast<bool> (playState), dontSendNotification);
         }
     }
     else if(afMessage.type == FileMessage)
     {
-        fileChooser->setCurrentFile (File(afMessage.path), false, false);
+        fileChooser->setCurrentFile (File(afMessage.path), false, dontSendNotification);
     }
 }

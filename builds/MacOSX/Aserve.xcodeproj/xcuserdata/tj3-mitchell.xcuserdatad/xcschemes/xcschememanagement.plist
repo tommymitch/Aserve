@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Aserve.xcscheme</key>
+		<key>Aserve (App).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F307E3B02DD64195580F9148</key>
+		<key>BB0FD3324FA4407FD5C88C5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

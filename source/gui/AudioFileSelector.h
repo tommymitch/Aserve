@@ -12,13 +12,13 @@
 
 #include "../../JuceLibraryCode/JuceHeader.h"
 
-class PlayButton : public TextButton 
-{
-public:
-    PlayButton(const String buttonName, const String toolTip) : TextButton(buttonName, toolTip) {}
-    Font 	getFont (){return Font ("Wingdings 3", jmin(getHeight(),getWidth())/1.5f, Font::plain);}
-private:
-};
+//class PlayButton : public TextButton 
+//{
+//public:
+//    PlayButton(const String buttonName, const String toolTip) : TextButton(buttonName, toolTip) {}
+//    Font 	getFont (){return Font ("Wingdings 3", jmin(getHeight(),getWidth())/1.5f, Font::plain);}
+//private:
+//};
 
 /**
  Holds the gui components of a AudioFile selector
@@ -90,7 +90,7 @@ public:
     //==========================================================================
 private:
 	ScopedPointer <FilenameComponent> fileChooser;
-	ScopedPointer <PlayButton> playButton; 
+	ScopedPointer <TextButton> playButton;
     
     //Listener
     ListenerList<Listener> listeners;

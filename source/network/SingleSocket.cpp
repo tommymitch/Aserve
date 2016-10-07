@@ -10,7 +10,7 @@
 #include "SingleSocket.h"
 
 //Network server
-SingleSocket::SingleSocket () : connection(NULL)
+SingleSocket::SingleSocket () 
 {
     
 }
