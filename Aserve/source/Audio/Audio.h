@@ -13,6 +13,8 @@
 
 #include "../../JuceLibraryCode/JuceHeader.h"
 
+#include "OscillatorManager.h"
+
 class Audio :   public  AudioDeviceManager,
                 private AudioIODeviceCallback,
                 private MidiInputCallback,
@@ -37,7 +39,12 @@ private:
     
     OSCReceiver oscReceiver;
     OSCSender oscSender;
-
+    
+    AudioSourcePlayer audioSource;
+    MixerAudioSource mixer;
+    OscillatorManager oscillator;
+    
+    
 };
 
 

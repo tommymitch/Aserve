@@ -31,6 +31,8 @@
 		DA1926B2465D81D62AFD29D3 /* AserveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99FEAE10A0312A64FFF01905 /* AserveComponent.cpp */; };
 		DB1CFEF1BBD093F5E0E01548 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8DD611E40DB39E60D8E279 /* IOKit.framework */; };
 		E130AB514516591B3FF30113 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445065F62B5DDE7E234077FF /* Cocoa.framework */; };
+		E38188CC1DABC5F4007186CD /* OscillatorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38188C81DABC5F4007186CD /* OscillatorManager.cpp */; };
+		E38188CD1DABC5F4007186CD /* Oscillators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38188CA1DABC5F4007186CD /* Oscillators.cpp */; };
 		ED9F6ED8287BCB56F49BC519 /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = C435A33ADB32F6BB9BD94A85 /* juce_events.mm */; };
 		F34B5B2F2DE17E46FE88C3CE /* juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5A31759F4DDA275F83BE1594 /* juce_gui_basics.mm */; };
 		F74DF16D003D82D66E5ED982 /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = ABF66E5CF501C7775807807B /* juce_core.mm */; };
@@ -1028,6 +1030,10 @@
 		E30A79CB949A2C95703C8A69 /* bitwise.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = bitwise.c; path = ../../../../../Libs/JUCE/modules/juce_audio_formats/codecs/oggvorbis/bitwise.c; sourceTree = SOURCE_ROOT; };
 		E3326ECA7D1D392A0D3A7318 /* inffixed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = inffixed.h; path = ../../../../../Libs/JUCE/modules/juce_core/zip/zlib/inffixed.h; sourceTree = SOURCE_ROOT; };
 		E37A48A3381C3940F89E6439 /* juce_ReferenceCountedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ReferenceCountedObject.h; path = ../../../../../Libs/JUCE/modules/juce_core/memory/juce_ReferenceCountedObject.h; sourceTree = SOURCE_ROOT; };
+		E38188C81DABC5F4007186CD /* OscillatorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OscillatorManager.cpp; path = ../../source/Audio/OscillatorManager.cpp; sourceTree = "<group>"; };
+		E38188C91DABC5F4007186CD /* OscillatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OscillatorManager.h; path = ../../source/Audio/OscillatorManager.h; sourceTree = "<group>"; };
+		E38188CA1DABC5F4007186CD /* Oscillators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Oscillators.cpp; path = ../../source/Audio/Oscillators.cpp; sourceTree = "<group>"; };
+		E38188CB1DABC5F4007186CD /* Oscillators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillators.h; path = ../../source/Audio/Oscillators.h; sourceTree = "<group>"; };
 		E39C950D1FAFB40AA22D13A1 /* juce_PositionableAudioSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PositionableAudioSource.h; path = ../../../../../Libs/JUCE/modules/juce_audio_basics/sources/juce_PositionableAudioSource.h; sourceTree = SOURCE_ROOT; };
 		E41E1E40A1D265DC43E28CCD /* smallft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = smallft.c; path = "../../../../../Libs/JUCE/modules/juce_audio_formats/codecs/oggvorbis/libvorbis-1.3.2/lib/smallft.c"; sourceTree = SOURCE_ROOT; };
 		E4389774092B72775B8A6857 /* juce_DrawableRectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_DrawableRectangle.cpp; path = ../../../../../Libs/JUCE/modules/juce_gui_basics/drawables/juce_DrawableRectangle.cpp; sourceTree = SOURCE_ROOT; };
@@ -2183,6 +2189,10 @@
 			children = (
 				50E50371384EFEE7772C3435 /* Audio.cpp */,
 				6562D7C9CCC6361D03436E17 /* Audio.h */,
+				E38188CA1DABC5F4007186CD /* Oscillators.cpp */,
+				E38188CB1DABC5F4007186CD /* Oscillators.h */,
+				E38188C81DABC5F4007186CD /* OscillatorManager.cpp */,
+				E38188C91DABC5F4007186CD /* OscillatorManager.h */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -3374,6 +3384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7568BAF87AD33E279D0AA6 /* AserveApplication.cpp in Sources */,
+				E38188CD1DABC5F4007186CD /* Oscillators.cpp in Sources */,
 				8B8F7A55FC985978F9F08918 /* Audio.cpp in Sources */,
 				DA1926B2465D81D62AFD29D3 /* AserveComponent.cpp in Sources */,
 				05CF3EECA08ACBF2AB16DB3F /* Osc.cpp in Sources */,
@@ -3384,6 +3395,7 @@
 				28BF7981BDA6161F53591E45 /* juce_audio_utils.mm in Sources */,
 				F74DF16D003D82D66E5ED982 /* juce_core.mm in Sources */,
 				671059B0F3229FD276ECDBBA /* juce_data_structures.mm in Sources */,
+				E38188CC1DABC5F4007186CD /* OscillatorManager.cpp in Sources */,
 				ED9F6ED8287BCB56F49BC519 /* juce_events.mm in Sources */,
 				BF8131B8D2425DDEA0CF4E95 /* juce_graphics.mm in Sources */,
 				F34B5B2F2DE17E46FE88C3CE /* juce_gui_basics.mm in Sources */,
