@@ -6,4 +6,4 @@
 */
 
 #include "AppConfig.h"
-#include <juce_cryptography/juce_cryptography.cpp>
+#include <juce_osc/juce_osc.cpp>

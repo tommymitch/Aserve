@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="kihC2W" name="Aserve" projectType="guiapp" version="1.5"
+              bundleIdentifier="com.teamaxe.aserve" jucerVersion="4.2.4" includeBinaryInAppConfig="1">
+  <MAINGROUP id="o96d9z" name="Aserve">
+    <GROUP id="{62DCCEE7-7217-4C6A-7D2E-166FFBC74604}" name="source">
+      <FILE id="X9mRk5" name="AserveApplication.cpp" compile="1" resource="0"
+            file="source/AserveApplication.cpp"/>
+      <GROUP id="{093A2C05-4514-69BB-6E26-432833D8A5DE}" name="Audio">
+        <FILE id="Y3zLub" name="Audio.cpp" compile="1" resource="0" file="source/Audio/Audio.cpp"/>
+        <FILE id="DGJxBr" name="Audio.h" compile="0" resource="0" file="source/Audio/Audio.h"/>
+      </GROUP>
+      <GROUP id="{C6D155C4-9A17-D6B6-C207-4642416CEBA4}" name="Gui">
+        <FILE id="AeIhyC" name="AserveComponent.cpp" compile="1" resource="0"
+              file="source/Gui/AserveComponent.cpp"/>
+        <FILE id="xFLjvF" name="AserveComponent.h" compile="0" resource="0"
+              file="source/Gui/AserveComponent.h"/>
+      </GROUP>
+      <GROUP id="{4C2BD65A-5E48-E0CD-1450-33B618D8E939}" name="Osc">
+        <FILE id="U52A2m" name="Osc.cpp" compile="1" resource="0" file="source/Osc/Osc.cpp"/>
+        <FILE id="PexgZS" name="Osc.h" compile="0" resource="0" file="source/Osc/Osc.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="NOpTrR" bigIcon="NOpTrR">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="Aserve"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="Aserve"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" smallIcon="NOpTrR"
+            bigIcon="NOpTrR">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Aserve"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Aserve"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_events" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_osc" path="../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>

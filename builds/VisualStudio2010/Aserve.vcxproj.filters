@@ -5,26 +5,17 @@
     <Filter Include="Aserve">
       <UniqueIdentifier>{3CEB7A4E-506D-EE4E-3EEA-FC847B2A3C31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Aserve\Source">
-      <UniqueIdentifier>{2EFDDA58-7457-26A2-7F13-2E9ECDE38DB4}</UniqueIdentifier>
+    <Filter Include="Aserve\source">
+      <UniqueIdentifier>{F1020A29-892F-5A56-5CC0-1A349C5C45A2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Aserve\Source\audio">
-      <UniqueIdentifier>{CB9C49FB-6398-C631-94EB-3CEBC1CF8493}</UniqueIdentifier>
+    <Filter Include="Aserve\source\Audio">
+      <UniqueIdentifier>{31A35C8C-7969-012F-1C1E-AD52BDD6662F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Aserve\Source\controller">
-      <UniqueIdentifier>{4BAA6B78-1E37-8E42-9004-EDC9F6DB93D3}</UniqueIdentifier>
+    <Filter Include="Aserve\source\Gui">
+      <UniqueIdentifier>{9BA88DE9-FF7D-7B03-F9DC-C6D316208A71}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Aserve\Source\gui">
-      <UniqueIdentifier>{613336F4-BB10-87C4-79F1-BB6A0961C75D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Aserve\Source\icon">
-      <UniqueIdentifier>{55CB67A3-132E-7F90-93F1-5352A7DB1600}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Aserve\Source\model">
-      <UniqueIdentifier>{D6756F82-1A35-CC06-A08C-9791EF71FC35}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Aserve\Source\network">
-      <UniqueIdentifier>{51C4A662-0DBB-1ACE-E822-FF146E34972E}</UniqueIdentifier>
+    <Filter Include="Aserve\source\Osc">
+      <UniqueIdentifier>{ED0F15E0-30E2-766A-FF84-66A36AABEF38}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
@@ -206,15 +197,6 @@
     <Filter Include="Juce Modules\juce_core\zip\zlib">
       <UniqueIdentifier>{585D6A72-C5E7-BCF1-A168-63A40C6B6313}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Juce Modules\juce_cryptography">
-      <UniqueIdentifier>{3C7C8F35-6C08-9866-6663-6FEFE2EFC9FC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juce Modules\juce_cryptography\encryption">
-      <UniqueIdentifier>{7703D2CE-C32A-936A-0EEF-949FE6E52EB5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juce Modules\juce_cryptography\hashing">
-      <UniqueIdentifier>{8D283B6C-13BA-9EF6-1B18-B1C393786943}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules\juce_data_structures">
       <UniqueIdentifier>{928D8FCC-5E00-174B-6538-93E8D75AB396}</UniqueIdentifier>
     </Filter>
@@ -353,67 +335,28 @@
     <Filter Include="Juce Modules\juce_gui_extra\native">
       <UniqueIdentifier>{C413328B-5D81-89EE-F4F3-75752E700DE4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\juce_osc">
+      <UniqueIdentifier>{1A62F82C-C14A-E14A-94DE-8A27E0F8A090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_osc\osc">
+      <UniqueIdentifier>{3D19F603-7985-B222-DFDA-9B83329ACA9D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Library Code">
       <UniqueIdentifier>{8B4D1BAA-6DB4-CAEC-A0FA-271F354D5C61}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\AserveApp.cpp">
-      <Filter>Aserve\Source</Filter>
+    <ClCompile Include="..\..\source\AserveApplication.cpp">
+      <Filter>Aserve\source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AserveComponent.cpp">
-      <Filter>Aserve\Source</Filter>
+    <ClCompile Include="..\..\source\Audio\Audio.cpp">
+      <Filter>Aserve\source\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AserveWindow.cpp">
-      <Filter>Aserve\Source</Filter>
+    <ClCompile Include="..\..\source\Gui\AserveComponent.cpp">
+      <Filter>Aserve\source\Gui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\audio\AserveAudio.cpp">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\audio\AserveOscillators.cpp">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\audio\AudioFilePlayer.cpp">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\audio\AudioFilePlayerManager.cpp">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\audio\OscillatorManager.cpp">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\controller\AserveController.cpp">
-      <Filter>Aserve\Source\controller</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\AserveGui.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\AudioFileSelector.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\AudioFileSelectorManager.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\BitwiseSelector.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\BitwiseSelectorManager.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\ErrorTextBox.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\gui\Scope.cpp">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\model\AserveModel.cpp">
-      <Filter>Aserve\Source\model</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\network\AserveNetwork.cpp">
-      <Filter>Aserve\Source\network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\network\SingleSocket.cpp">
-      <Filter>Aserve\Source\network</Filter>
+    <ClCompile Include="..\..\source\Osc\Osc.cpp">
+      <Filter>Aserve\source\Osc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -1155,30 +1098,6 @@
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\juce_core.mm">
       <Filter>Juce Modules\juce_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_BlowFish.cpp">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_Primes.cpp">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_RSAKey.cpp">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_MD5.cpp">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_SHA256.cpp">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_Whirlpool.cpp">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_cryptography.cpp">
-      <Filter>Juce Modules\juce_cryptography</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_cryptography.mm">
-      <Filter>Juce Modules\juce_cryptography</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\app_properties\juce_ApplicationProperties.cpp">
       <Filter>Juce Modules\juce_data_structures\app_properties</Filter>
@@ -2035,8 +1954,32 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_gui_extra.mm">
       <Filter>Juce Modules\juce_gui_extra</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
-      <Filter>Juce Library Code</Filter>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCAddress.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCArgument.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCBundle.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCMessage.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCReceiver.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCSender.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCTimeTag.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCTypes.cpp">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Libs\JUCE\modules\juce_osc\juce_osc.cpp">
+      <Filter>Juce Modules\juce_osc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
@@ -2056,9 +1999,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_core.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\juce_cryptography.cpp">
-      <Filter>Juce Library Code</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_data_structures.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2074,67 +2014,19 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_gui_extra.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_osc.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Globals.h">
-      <Filter>Aserve\Source</Filter>
+    <ClInclude Include="..\..\source\Audio\Audio.h">
+      <Filter>Aserve\source\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AserveApp.h">
-      <Filter>Aserve\Source</Filter>
+    <ClInclude Include="..\..\source\Gui\AserveComponent.h">
+      <Filter>Aserve\source\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AserveComponent.h">
-      <Filter>Aserve\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\AserveWindow.h">
-      <Filter>Aserve\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\audio\AserveAudio.h">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\audio\AserveOscillators.h">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\audio\AudioFilePlayer.h">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\audio\AudioFilePlayerManager.h">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\audio\OscillatorManager.h">
-      <Filter>Aserve\Source\audio</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\controller\AserveController.h">
-      <Filter>Aserve\Source\controller</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\AserveGui.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\AudioFileSelector.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\AudioFileSelectorManager.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\BitwiseSelector.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\BitwiseSelectorManager.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\ErrorTextBox.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\gui\Scope.h">
-      <Filter>Aserve\Source\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\model\AserveModel.h">
-      <Filter>Aserve\Source\model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\network\AserveNetwork.h">
-      <Filter>Aserve\Source\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\network\SingleSocket.h">
-      <Filter>Aserve\Source\network</Filter>
+    <ClInclude Include="..\..\source\Osc\Osc.h">
+      <Filter>Aserve\source\Osc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -3111,30 +3003,6 @@
     <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_core\juce_core.h">
       <Filter>Juce Modules\juce_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_BlowFish.h">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_Primes.h">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\encryption\juce_RSAKey.h">
-      <Filter>Juce Modules\juce_cryptography\encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_MD5.h">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_SHA256.h">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\hashing\juce_Whirlpool.h">
-      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_cryptography\juce_cryptography.h">
-      <Filter>Juce Modules\juce_cryptography</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_cryptography\juce_cryptography.h">
-      <Filter>Juce Modules\juce_cryptography</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\app_properties\juce_ApplicationProperties.h">
       <Filter>Juce Modules\juce_data_structures\app_properties</Filter>
     </ClInclude>
@@ -3876,10 +3744,37 @@
     <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_gui_extra\juce_gui_extra.h">
       <Filter>Juce Modules\juce_gui_extra</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
-      <Filter>Juce Library Code</Filter>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCAddress.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCArgument.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCBundle.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCMessage.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCReceiver.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCSender.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCTimeTag.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\osc\juce_OSCTypes.h">
+      <Filter>Juce Modules\juce_osc\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\juce_osc.h">
+      <Filter>Juce Modules\juce_osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Libs\JUCE\modules\juce_osc\juce_osc.h">
+      <Filter>Juce Modules\juce_osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
@@ -3887,9 +3782,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Source\icon\aserveicon.png">
-      <Filter>Aserve\Source\icon</Filter>
-    </None>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>
     </None>
@@ -3901,9 +3793,6 @@
     </None>
     <None Include="..\..\JuceLibraryCode\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>Juce Modules\juce_graphics\image_formats\pnglib</Filter>
-    </None>
-    <None Include=".\icon.ico">
-      <Filter>Juce Library Code</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
