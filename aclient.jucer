@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="wP48LK" name="aclient" projectType="consoleapp" version="1.5"
+              bundleIdentifier="com.yourcompany.iapProj" includeBinaryInAppConfig="1"
+              jucerVersion="4.2.4">
+  <MAINGROUP id="OlrwYZ" name="aclient">
+    <GROUP id="{FA5E4B25-ABE8-7BA6-823E-D275C09E5DF8}" name="Source">
+      <FILE id="rlofbJ" name="main.cpp" compile="1" resource="0" file="Source/main.cpp"/>
+      <GROUP id="{946F7C9C-BF33-1196-51A6-0D520405B633}" name="aservelibs">
+        <FILE id="wdjPYE" name="aservelib.cpp" compile="1" resource="0" file="Source/aservelibs/aservelib.cpp"/>
+        <FILE id="WTtU4Q" name="aservelib.h" compile="0" resource="0" file="Source/aservelibs/aservelib.h"/>
+        <FILE id="gLJjyy" name="audioserver.cpp" compile="1" resource="0" file="Source/aservelibs/audioserver.cpp"/>
+        <FILE id="K9gDLi" name="audioserver.h" compile="0" resource="0" file="Source/aservelibs/audioserver.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="iapProj"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="iapProj"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2010 targetFolder="Builds/VisualStudio2010">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="iapProj"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="iapProj"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_events" path="../../../../../../../../../../../Development/Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../../../../../../Development/Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>

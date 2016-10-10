@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Pqq41u" name="Aclient" projectType="consoleapp" version="1.5"
+              bundleIdentifier="com.yourcompany.Aclient" includeBinaryInAppConfig="1"
+              jucerVersion="4.2.4">
+  <MAINGROUP id="lCyi3I" name="Aclient">
+    <GROUP id="{1B1FC5D5-E796-FE5E-06F2-7442B759D7F7}" name="Source">
+      <FILE id="u9218d" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <GROUP id="{BF5268B0-1449-8B2C-195A-41DDF5A5DA8E}" name="aservelibs">
+        <FILE id="Bz0xUN" name="aservelib.cpp" compile="1" resource="0" file="Source/aservelibs/aservelib.cpp"/>
+        <FILE id="izHZxW" name="aservelib.h" compile="0" resource="0" file="Source/aservelibs/aservelib.h"/>
+        <FILE id="wUtxwx" name="audioserver.cpp" compile="1" resource="0" file="Source/aservelibs/audioserver.cpp"/>
+        <FILE id="bV9mTH" name="audioserver.h" compile="0" resource="0" file="Source/aservelibs/audioserver.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aclient"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aclient"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Aclient"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Aclient"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2015>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aclient"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aclient"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+    <CODEBLOCKS_WINDOWS targetFolder="Builds/CodeBlocksWindows">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aclient"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aclient"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_WINDOWS>
+    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Aclient"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Aclient"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../Libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_LINUX>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
